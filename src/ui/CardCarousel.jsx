@@ -1,0 +1,268 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { Star } from 'lucide-react';
+
+const CardCarousel = ({ items }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [currentTranslateX, setCurrentTranslateX] = useState(0);
+  const [slidesQty, setSlidesQty] = useState(
+    window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1
+  );
+  const carouselRef = useRef(null);
+
+  const maxIndex = Math.max(0, items?.length - slidesQty);
+
+  const goToSlide = (index) => {
+    const clampedIndex = Math.max(0, Math.min(maxIndex, index));
+    setCurrentIndex(clampedIndex);
+  };
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.clientX || e.touches[0].clientX);
+    e.preventDefault();
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    
+    const x = e.clientX || e.touches[0].clientX;
+    const diff = x - startX;
+    const cardWidth = carouselRef.current.offsetWidth / slidesQty;
+    const translateAmount = (diff / cardWidth) * 100;
+    
+    setCurrentTranslateX(translateAmount);
+  };
+
+  const handleMouseUp = (e) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+
+    const x = e.clientX || e.changedTouches?.[0]?.clientX || startX;
+    const diff = x - startX;
+    const threshold = carouselRef.current.offsetWidth / (slidesQty * 4);
+
+    if (diff > threshold && currentIndex > 0) {
+      goToSlide(currentIndex - 1);
+    } else if (diff < -threshold && currentIndex < maxIndex) {
+      goToSlide(currentIndex + 1);
+    }
+    
+    setCurrentTranslateX(0);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newSlidesQty = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+      setSlidesQty(newSlidesQty);
+      setCurrentIndex(prev => Math.min(prev, items?.length - newSlidesQty));
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [items?.length]);
+
+  useEffect(() => {
+    if (isDragging) {
+      document.body.style.userSelect = 'none';
+    } else {
+      document.body.style.userSelect = '';
+    }
+    return () => {
+      document.body.style.userSelect = '';
+    };
+  }, [isDragging]);
+
+  const calculateTransform = () => {
+    const baseTranslate = -(currentIndex * (100 / slidesQty));
+    const dragOffset = isDragging ? (currentTranslateX / slidesQty) : 0;
+    return baseTranslate + dragOffset;
+  };
+
+  return (
+    <div className="relative w-full overflow-hidden rounded-xl py-8">
+      <div
+        ref={carouselRef}
+        className="relative min-h-[450px]"
+        onMouseDown={handleMouseDown}
+        onTouchStart={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onTouchMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onTouchEnd={handleMouseUp}
+        onMouseLeave={() => {
+          if (isDragging) {
+            handleMouseUp({ clientX: startX });
+          }
+        }}
+      >
+        <div
+          className={`flex transition-transform ${isDragging ? 'duration-0 cursor-grabbing' : 'duration-300 cursor-grab'}`}
+          style={{
+            transform: `translateX(${calculateTransform()}%)`,
+            width: `${(items?.length / slidesQty) * 100}%`
+          }}
+        >
+          {items?.map((item, index) => (
+            <div
+              key={item.key || index}
+              className="px-2"
+              style={{ width: `${100 / items.length}%` }}
+            >
+              <div className="flex justify-center items-center w-full h-full">
+                <Card 
+                  title={item?.title} 
+                  description={item?.description}
+                  review={item?.review} 
+                  name={item?.name} 
+                  avatar={item?.avatar} 
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex justify-center gap-x-2 mt-6">
+        {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+          <button
+            key={index}
+            type="button"
+            onClick={() => goToSlide(index)}
+            className={`transition-all duration-300 rounded-full ${
+              index === currentIndex
+                ? 'bg-blue-700 w-8 h-3'
+                : 'bg-gray-400 w-3 h-3 hover:bg-gray-600'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const Card = ({ title, description, review, name, avatar }) => {
+  const rating = parseInt(review) || 0;
+  
+  return (
+    <div className="w-[400px] h-[400px] text-white space-y-8 max-w-md bg-gray-900 border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-8">
+  
+      {/* Title */}
+      <h3 className="text-2xl font-bold text-white mb-3">
+        {title}
+      </h3>
+
+      {/* Description/Review */}
+      <p className="text-gray-100 text-md leading-relaxed mb-6">
+        {description}
+      </p>
+
+          {/* Rating Stars */}
+      <div className="flex gap-1 mb-4">
+        {[...Array(5)].map((_, i) => (
+          <Star
+            key={i}
+            className={`w-5 h-5 ${
+              i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
+            }`}
+          />
+        ))}
+      </div>
+
+
+      {/* User Info */}
+      <div className="flex items-center justify-left gap-8 pt-4 border-t border-gray-100">
+        <img 
+          src={avatar} 
+          alt={name || "User avatar"} 
+          className="w-12 h-12 rounded-full object-cover"
+          draggable="false"
+        />
+        <div>
+          <p className="font-semibold text-xl text-gray-900">{name}</p>
+          <p className="text-sm text-gray-100">Customer</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const carouselItems = [
+  {
+    key: 1,
+    title: "Strategic Trading Support",
+    description: "Professional guidance for optimal trading decisions and market analysis.",
+    review: "4",
+    name: "Joseph",
+    avatar: "https://images.unsplash.com/photo-1554224154-260325c0594e?w=400&h=300&fit=crop"
+  },
+  {
+    key: 2,
+    title: "Investment Portfolio Management",
+    description: "Expert guidance for diversified investment strategies",
+    review: "5",
+    name: "Sarah",
+    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=300&fit=crop"
+  },
+  {
+    key: 3,
+    title: "Risk Assessment Solutions",
+    description: "Comprehensive risk analysis and mitigation strategies",
+    review: "4",
+    name: "Michael",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
+  },
+  {
+    key: 4,
+    title: "Market Research Analytics",
+    description: "Data-driven insights for informed decision making",
+    review: "5",
+    name: "Emily",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=300&fit=crop"
+  },
+  {
+    key: 5,
+    title: "Financial Planning Services",
+    description: "Personalized financial strategies for long-term growth",
+    review: "4",
+    name: "David",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop"
+  },
+  {
+    key: 6,
+    title: "Trading Algorithm Development",
+    description: "Custom algorithmic trading solutions for optimal performance",
+    review: "5",
+    name: "Lisa",
+    avatar: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&h=300&fit=crop"
+  },
+  {
+    key: 7,
+    title: "Wealth Management Advisory",
+    description: "Strategic wealth preservation and growth consultation",
+    review: "4",
+    name: "Robert",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop"
+  },
+  {
+    key: 8,
+    title: "Compliance & Regulatory Support",
+    description: "Ensuring regulatory compliance in financial operations",
+    review: "5",
+    name: "Jennifer",
+    avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=300&fit=crop"
+  }
+];
+
+// Example Usage
+export default function App() {
+  return (
+    <div className="min-h-screen">
+      <div className="max-w-7xl mx-auto">
+        <CardCarousel items={carouselItems} />
+      </div>
+    </div>
+  );
+}
