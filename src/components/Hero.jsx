@@ -2,11 +2,24 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="py-20 bg-white rounded-full">
+    <section className="py-20 z-1 mt-10 relative bg-white rounded-[60px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">
+            <div className="flex items-center justify-start gap-3 mb-6">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-black rounded-full"></div>
+                <div className="w-12 h-0.5 bg-black"></div>
+              </div>
+              <span className="text-sm font-medium tracking-wide">
+                Our Identity
+              </span>
+              <div className="flex items-center gap-2">
+                <div className="w-12 h-0.5 bg-black"></div>
+                <div className="w-3 h-3 bg-black rounded-full"></div>
+              </div>
+            </div>
             <h2 className="text-5xl font-bold text-gray-900">
               Boosting Your Company
             </h2>
@@ -71,7 +84,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg inline-flex items-center space-x-2 transition-colors">
+            <button className="bg-gradient-to-l from-lime-200 to-green-400/70 hover:bg-green-700  py-4 px-8 rounded-lg inline-flex items-center space-x-2 transition-colors">
               <span>Get Started</span>
               <svg
                 className="w-5 h-5"
@@ -93,10 +106,10 @@ const Hero = () => {
           <div className="">
             {/* Decorative Circles */}
             <div className="flex items-center justify-center">
-              <div class="w-20 h-40 bg-green-500 rounded-r-full"></div>
-              <div class="w-30 h-60 bg-green-500 rounded-r-full"></div>
+              <div class="w-20 h-40 bg-gradient-to-l from-lime-200 to-green-400/70 rounded-r-full"></div>
+              <div class="w-30 h-60 bg-gradient-to-l from-lime-200 to-green-400/70 rounded-r-full"></div>
               <div className="flex items-center justify-center">
-                <div class="w-40 h-80 bg-green-500 rounded-r-full overflow-hidden">
+                <div class="w-40 h-80 bg-gradient-to-l from-lime-200 to-green-400/70 rounded-r-full overflow-hidden">
                   <img
                     src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt="Business professional with tablet"
@@ -104,7 +117,7 @@ const Hero = () => {
                   />
                 </div>
 
-                <div class="w-50 h-100 bg-green-500 rounded-r-full overflow-hidden">
+                <div class="w-50 h-100 bg-gradient-to-l from-lime-200 to-green-400/70 rounded-r-full overflow-hidden">
                   <img
                     src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt="Business professional with tablet"

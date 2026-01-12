@@ -16,7 +16,7 @@ export default function MissionGoalsSection() {
   ];
 
   return (
-    <div className="w-full bg-gray-100 py-16 px-8 md:px-16 lg:px-24">
+    <div className="w-full bg-gray-100 rounded-t-[60px] relative py-16 px-8 md:px-16 lg:px-24">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Side - Images */}
@@ -135,7 +135,7 @@ export default function MissionGoalsSection() {
             </div>
 
             {/* Get Started Button */}
-            <button className="flex items-center gap-2 bg-green-400 hover:bg-green-500 text-black font-semibold px-8 py-4 rounded-full transition-colors shadow-lg">
+            <button className="flex items-center gap-2 bg-gradient-to-l from-lime-200 to-green-400/70 hover:bg-green-500 text-black font-semibold px-8 py-4 rounded-xl transition-colors shadow-lg">
               Get Started
               <ArrowRight className="w-5 h-5" />
             </button>

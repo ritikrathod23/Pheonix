@@ -13,12 +13,11 @@ import CardCarousel from "../ui/CardCarousel";
 import { carouselItems } from "../data/carouselData";
 import LatestInsight from "../components/LatestInsight";
 
-
 const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Background Image - Empty for now */}
-      <div className="absolute  inset-0 z-0 bg-gray-900">
+      <div className="absolute brightness-75 inset-0 z-0 bg-gray-900">
         <img src={HeroImage} alt="" />
       </div>
       {/* Hero Section */}
@@ -76,7 +75,7 @@ const Home = () => {
             </div>
           </div>
 
-          <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg inline-flex items-center space-x-2 transition-colors">
+          <button className="bg-gradient-to-l from-lime-200 to-green-400/70 hover:bg-green-700 text-black font-semibold py-4 px-8 rounded-lg inline-flex items-center space-x-2 transition-colors">
             <span>Free Consultation</span>
             <svg
               className="w-5 h-5"
@@ -93,9 +92,6 @@ const Home = () => {
             </svg>
           </button>
 
-          <div className="mt-8 text-white/80">
-            <p className="text-lg animate-bounce">Scroll For More</p>
-          </div>
         </div>
       </section>
 
@@ -108,14 +104,16 @@ const Home = () => {
 
       <ServiceHighlights />
 
-      <MissionGoalsSection />
+      <div className="bg-black">
+        <MissionGoalsSection />
+      </div>
 
       <ShowcasingBestWork />
 
       <ClientFeedback items={carouselItems} />
-
-      <LatestInsight />
-
+      <div className="bg-black">
+        <LatestInsight />
+      </div>
     </div>
   );
 };

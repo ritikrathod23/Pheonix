@@ -30,7 +30,7 @@ export default function SendQuery() {
 
   return (
     <div className="w-full bg-gray-100 py-16 px-8 relative">
-      <div className="max-w-7xl mx-auto bg-white rounded-[60px] p-12 md:p-16 shadow-lg">
+      <div className="max-w-7xl mx-auto rounded-[60px] p-12 md:p-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Side - Contact Info */}
           <div>
@@ -58,10 +58,10 @@ export default function SendQuery() {
             </div>
 
             {/* Contact Details */}
-            <div className="space-y-8">
+            <div className="space-y-8 grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Company Address */}
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-14 h-14 bg-green-300 rounded-2xl flex items-center justify-center">
+                <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-l from-lime-200 to-green-400/70 rounded-2xl flex items-center justify-center">
                   <MapPin className="w-6 h-6 text-black" />
                 </div>
                 <div>
@@ -75,7 +75,7 @@ export default function SendQuery() {
 
               {/* Talk To Us */}
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-14 h-14 bg-green-300 rounded-2xl flex items-center justify-center">
+                <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-l from-lime-200 to-green-400/70 rounded-2xl flex items-center justify-center">
                   <Phone className="w-6 h-6 text-black" />
                 </div>
                 <div>
@@ -89,7 +89,7 @@ export default function SendQuery() {
 
               {/* Office Days */}
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-14 h-14 bg-green-300 rounded-2xl flex items-center justify-center">
+                <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-l from-lime-200 to-green-400/70 rounded-2xl flex items-center justify-center">
                   <Clock className="w-6 h-6 text-black" />
                 </div>
                 <div>
@@ -104,7 +104,7 @@ export default function SendQuery() {
 
               {/* Email Us */}
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-14 h-14 bg-green-300 rounded-2xl flex items-center justify-center">
+                <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-l from-lime-200 to-green-400/70 rounded-2xl flex items-center justify-center">
                   <Mail className="w-6 h-6 text-black" />
                 </div>
                 <div>
@@ -119,7 +119,7 @@ export default function SendQuery() {
           </div>
 
           {/* Right Side - Contact Form */}
-          <div className="bg-gray-50 rounded-3xl p-8">
+          <div className="bg-white rounded-3xl p-8">
             <h3 className="text-3xl font-bold text-black mb-8">
               Book Your Free Consultation
             </h3>
@@ -133,7 +133,7 @@ export default function SendQuery() {
                   placeholder="First Name*"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="px-4 py-3 bg-white border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-700 placeholder-gray-400"
+                  className="px-4 py-3 bg-gray-100 border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-700 placeholder-gray-400"
                 />
                 <input
                   type="text"
@@ -141,7 +141,7 @@ export default function SendQuery() {
                   placeholder="Last Name*"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="px-4 py-3 bg-white border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-700 placeholder-gray-400"
+                  className="px-4 py-3 bg-gray-100 border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-700 placeholder-gray-400"
                 />
               </div>
 
@@ -153,7 +153,7 @@ export default function SendQuery() {
                   placeholder="Email Address*"
                   value={formData.email}
                   onChange={handleChange}
-                  className="px-4 py-3 bg-white border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-700 placeholder-gray-400"
+                  className="px-4 py-3 bg-gray-100 border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-700 placeholder-gray-400"
                 />
                 <input
                   type="tel"
@@ -161,7 +161,7 @@ export default function SendQuery() {
                   placeholder="Phone Number*"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="px-4 py-3 bg-white border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-700 placeholder-gray-400"
+                  className="px-4 py-3 bg-gray-100 border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-700 placeholder-gray-400"
                 />
               </div>
 
@@ -173,13 +173,13 @@ export default function SendQuery() {
                   placeholder="Company*"
                   value={formData.company}
                   onChange={handleChange}
-                  className="px-4 py-3 bg-white border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-700 placeholder-gray-400"
+                  className="px-4 py-3 bg-gray-100 border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-700 placeholder-gray-400"
                 />
                 <select
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="px-4 py-3 bg-white border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-700 appearance-none cursor-pointer"
+                  className="px-4 py-3 bg-gray-100 border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-700 appearance-none cursor-pointer"
                 >
                   <option value="">Choose Services*</option>
                   <option value="consulting">Consulting</option>
@@ -196,13 +196,13 @@ export default function SendQuery() {
                 value={formData.message}
                 onChange={handleChange}
                 rows="6"
-                className="w-full px-4 py-3 bg-white border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-700 placeholder-gray-400 resize-none"
+                className="w-full px-4 py-3 bg-gray-100  border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-700 placeholder-gray-400 resize-none"
               />
 
               {/* Submit Button */}
               <button
                 onClick={handleSubmit}
-                className="flex items-center gap-2 bg-green-400 hover:bg-green-500 text-black font-semibold px-8 py-4 rounded-full transition-all duration-300 group"
+                className="flex items-center gap-2 bg-gradient-to-l from-lime-200 to-green-400/70 hover:bg-green-500 text-black font-semibold px-8 py-4 rounded-xl transition-all duration-300 group"
               >
                 Submit
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
