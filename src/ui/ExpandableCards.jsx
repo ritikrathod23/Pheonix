@@ -40,7 +40,7 @@ export default function ExpandableCards() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-100 py-16 px-4 relative">
+    <div className="w-full min-h-screen bg-gray-100  py-4  md:py-16 px-4 relative">
 
       {/* LARGE SCREENS — ORIGINAL LAYOUT */}
       <div className="hidden lg:block max-w-7xl mx-auto">
@@ -123,7 +123,77 @@ export default function ExpandableCards() {
         className="
           lg:hidden 
           flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-2
+          cursor-grab active:cursor-grabbing transition-transform duration-200 ease-out
         "
+        onMouseDown={(e) => {
+          const slider = e.currentTarget;
+          let isDown = false;
+          let startX;
+          let scrollLeft;
+
+          const handleMouseDown = (e) => {
+            isDown = true;
+            slider.classList.add('active:cursor-grabbing');
+            slider.style.transition = 'none';
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+          };
+
+          const handleMouseLeave = () => {
+            isDown = false;
+            slider.classList.remove('active:cursor-grabbing');
+            slider.style.transition = 'transform 200ms ease-out';
+          };
+
+          const handleMouseUp = () => {
+            isDown = false;
+            slider.classList.remove('active:cursor-grabbing');
+            slider.style.transition = 'transform 200ms ease-out';
+          };
+
+          const handleMouseMove = (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+          };
+
+          handleMouseDown(e);
+          
+          const cleanup = () => {
+            slider.removeEventListener('mouseleave', handleMouseLeave);
+            slider.removeEventListener('mouseup', handleMouseUp);
+            slider.removeEventListener('mousemove', handleMouseMove);
+          };
+
+          slider.addEventListener('mouseleave', handleMouseLeave);
+          slider.addEventListener('mouseup', handleMouseUp);
+          slider.addEventListener('mousemove', handleMouseMove);
+
+          return cleanup;
+        }}
+        onTouchStart={(e) => {
+          const slider = e.currentTarget;
+          slider.style.transition = 'none';
+          let startX = e.touches[0].pageX - slider.offsetLeft;
+          let scrollLeft = slider.scrollLeft;
+
+          const handleTouchMove = (e) => {
+            const x = e.touches[0].pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+          };
+
+          const handleTouchEnd = () => {
+            slider.style.transition = 'transform 200ms ease-out';
+            slider.removeEventListener('touchmove', handleTouchMove);
+            slider.removeEventListener('touchend', handleTouchEnd);
+          };
+
+          slider.addEventListener('touchmove', handleTouchMove);
+          slider.addEventListener('touchend', handleTouchEnd);
+        }}
       >
         {cards.map((card) => (
           <div
@@ -131,12 +201,13 @@ export default function ExpandableCards() {
             className="
               min-w-[85%] sm:min-w-[70%] md:min-w-[48%]
               snap-center bg-white rounded-3xl shadow-lg p-5
+              select-none transition-transform duration-200 ease-out
             "
           >
             <img
               src={card.image}
               alt={card.title}
-              className="w-full h-56 rounded-2xl object-cover mb-4"
+              className="w-full h-56 rounded-2xl object-cover mb-4 pointer-events-none"
             />
 
             <h3 className="text-xl font-bold text-black mb-2">{card.title}</h3>
@@ -148,6 +219,7 @@ export default function ExpandableCards() {
           </div>
         ))}
       </div>
+
 
       {/* SCROLL TO TOP BUTTON */}
       <button
