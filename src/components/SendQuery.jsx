@@ -24,13 +24,11 @@ export default function SendQuery() {
     // Handle form submission here
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+ 
 
   return (
-    <div className="w-full bg-gray-100 py-16 px-8 relative">
-      <div className="max-w-7xl mx-auto rounded-[60px] p-12 md:p-16">
+    <div className="w-full bg-gray-100 rounded-t-[60px] py-16 px-2 sm:px-8 relative">
+      <div className="max-w-7xl mx-auto  p-6 sm:p-12 md:p-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Side - Contact Info */}
           <div>
@@ -213,12 +211,7 @@ export default function SendQuery() {
       </div>
 
       {/* Scroll to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-14 h-14 bg-green-400 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-500 transition-colors shadow-lg z-50"
-      >
-        <ArrowUp className="w-6 h-6 text-black" />
-      </button>
+    
     </div>
   );
 }

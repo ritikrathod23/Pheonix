@@ -29,46 +29,47 @@ const TrustedPartners = () => {
             Partnered with industry leaders worldwide
           </p>
         </div>
-      <div className="space-y-8">
+        <div className="space-y-8">
+          {/* Row 1 */}
+          <div className="marquee">
+            <div className="marquee-content">
+              {partners.concat(partners).map((partner, index) => (
+                <div
+                  key={index}
+                  className="flex mx-4  border border-gray-200 rounded-2xl text-xl p-4 items-center justify-center transform transition-all duration-1000 hover:scale-105"
+                >
+                  <div
+                    className={`${partner.width} h-12 flex items-center justify-center`}
+                  >
+                    <div className="text-gray-400 font-bold text-lg uppercase tracking-wider">
+                      {partner.name}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-  {/* Row 1 */}
-  <div className="marquee">
-    <div className="marquee-content">
-      {partners.concat(partners).map((partner, index) => (
-        <div
-          key={index}
-          className="flex mx-4  border border-gray-200 rounded-2xl text-xl p-4 items-center justify-center transform transition-all duration-1000 hover:scale-105"
-        >
-          <div className={`${partner.width} h-12 flex items-center justify-center`}>
-            <div className="text-gray-400 font-bold text-lg uppercase tracking-wider">
-              {partner.name}
+          {/* Row 2 */}
+          <div className="marquee reverse">
+            <div className="marquee-content">
+              {partners2.concat(partners2).map((partner, index) => (
+                <div
+                  key={index}
+                  className="flex mx-4  border border-gray-200 rounded-2xl text-xl p-4 items-center justify-center transform transition-all duration-1000 hover:scale-105"
+                >
+                  <div
+                    className={`${partner.width} h-12 flex items-center justify-center`}
+                  >
+                    <div className="text-gray-400 font-bold text-lg uppercase tracking-wider">
+                      {partner.name}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-
-  {/* Row 2 */}
-  <div className="marquee reverse">
-    <div className="marquee-content">
-      {partners2.concat(partners2).map((partner, index) => (
-        <div
-          key={index}
-          className="flex mx-4  border border-gray-200 rounded-2xl text-xl p-4 items-center justify-center transform transition-all duration-1000 hover:scale-105"
-        >
-          <div className={`${partner.width} h-12 flex items-center justify-center`}>
-            <div className="text-gray-400 font-bold text-lg uppercase tracking-wider">
-              {partner.name}
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-
-</div>
-
       </div>
     </section>
   );

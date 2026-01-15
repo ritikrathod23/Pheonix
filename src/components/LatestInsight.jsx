@@ -7,21 +7,21 @@ export default function LatestInsight() {
       id: 1,
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
       date: "June 24, 2025",
-      title: "Develop Your Edge In A Crowded Market",
+      title: " How to Build a Diversified Portfolio",
       link: "#"
     },
     {
       id: 2,
       image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80",
       date: "June 24, 2025",
-      title: "Learn How To Trade With Confidence Daily",
+      title: "Top Equity Picks for 2026",
       link: "#"
     },
     {
       id: 3,
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
       date: "June 24, 2025",
-      title: "Daily Trading Habits For Long-Term Success",
+      title: "Understanding Market Volatility",
       link: "#"
     }
   ];

@@ -1,15 +1,15 @@
 import React from "react";
-import logo from "../assets/logo.png";
+import logo1 from "../assets/logo1.png";
 
 const Footer = () => {
   return (
     <footer className="bg-black rounded-t-[60px] py-16 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Bullish Brand */}
+          {/*  Brand */}
           <div className="col-span-1">
             <h3 className="text-2xl font-bold text-green-400 mb-4">
-              <img src={logo} alt="Bullish" className="h-14" />
+              <img src={logo1} alt="Bullish" className="h-14" />
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed">
               Your trusted partner for smart financing solutions and business
@@ -62,11 +62,11 @@ const Footer = () => {
 
           {/* Register For Our Updates! */}
           <div className="col-span-2">
-            <div className="flex justify-between gap-10">
-              <h4 className="text-3xl font-semibold  mb-4">
+            <div className="flex justify-between gap-2 sm:gap-10">
+              <h4 className="sm:text-3xl text-lg font-semibold  mb-4">
                 Register For Our Updates!
               </h4>
-              <div className="space-x-4 flex pl-32 w-full ">
+              <div className="sm:space-x-4 space-x-2 flex pl-2 sm:pl-32 w-full ">
                 <input
                   type="email"
                   placeholder="Enter your email"
@@ -115,7 +115,7 @@ const Footer = () => {
                       href="#"
                       className="text-gray-400 hover:text-white transition-colors"
                     >
-                      Documentation
+                      Privacy Policy
                     </a>
                   </li>
                 </ul>
@@ -146,7 +146,7 @@ const Footer = () => {
                       href="#"
                       className="text-gray-400 hover:text-white transition-colors"
                     >
-                      Careers
+                      Pricing
                     </a>
                   </li>
                   <li>
@@ -154,20 +154,22 @@ const Footer = () => {
                       href="#"
                       className="text-gray-400 hover:text-white transition-colors"
                     >
-                      Blog
+                      Insights
                     </a>
                   </li>
                 </ul>
               </div>
+
+              {/* Contact Info */}
               <div className="col-span-1">
-                <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+                <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
                 <ul className="space-y-2">
                   <li>
                     <a
                       href="#"
                       className="text-gray-400 hover:text-white transition-colors"
                     >
-                      About Us
+                      Address
                     </a>
                   </li>
                   <li>
@@ -175,7 +177,7 @@ const Footer = () => {
                       href="#"
                       className="text-gray-400 hover:text-white transition-colors"
                     >
-                      Services
+                      Phone
                     </a>
                   </li>
                   <li>
@@ -183,7 +185,7 @@ const Footer = () => {
                       href="#"
                       className="text-gray-400 hover:text-white transition-colors"
                     >
-                      Careers
+                      Email 
                     </a>
                   </li>
                   <li>

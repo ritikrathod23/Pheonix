@@ -1,2 +1,13 @@
 @import "tailwindcss";
 @source "../.flowbite-react/class-list.json";
+
+
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

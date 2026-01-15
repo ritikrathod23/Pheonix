@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import Stats from "../components/Stats";
 import Hero from "../components/Hero";
 import TrustedPartners from "../components/TrustedPartners";
@@ -12,71 +11,44 @@ import ClientFeedback from "../components/ClientFeedback";
 import CardCarousel from "../ui/CardCarousel";
 import { carouselItems } from "../data/carouselData";
 import LatestInsight from "../components/LatestInsight";
+import { ArrowUp } from "lucide-react";
+import AutoScrollingMarquee from "../components/AutoScrollingMarquee";
 
 const Home = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="min-h-screen">
       {/* Background Image - Empty for now */}
       <div className="absolute brightness-75 inset-0 z-0 bg-gray-900">
-        <img src={HeroImage} alt="" />
+        <img src={HeroImage} alt="" className="w-full h-full object-cover" />
       </div>
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
         {/* Content */}
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-8">
-            Boost Your Business
+            Transform Your Investing With
             <br />
-            with Smart Financing
+            Research-Driven Insights
           </h1>
 
           <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-12">
-            <div className="flex items-center space-x-2">
-              <svg
-                className="w-6 h-6 text-green-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span className="text-xl">Easy To Learn</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <svg
-                className="w-6 h-6 text-green-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span className="text-xl">Best Result</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <svg
-                className="w-6 h-6 text-green-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span className="text-xl">Quick Support</span>
-            </div>
+            <p className="text-xl text-white ">
+              At Pheonix Capital Research, we turn deep financial analysis into
+              clear,{" "}
+              <span className="block">actionable investment strategies — </span>{" "}
+              <span className="font-semibold">
+                so you invest smarter, not harder
+              </span>
+              .
+            </p>
           </div>
 
           <button className="bg-gradient-to-l from-lime-200 to-green-400/70 hover:bg-green-700 text-black font-semibold py-4 px-8 rounded-lg inline-flex items-center space-x-2 transition-colors">
-            <span>Free Consultation</span>
+            <span>Free Started</span>
             <svg
               className="w-5 h-5"
               fill="none"
@@ -91,12 +63,13 @@ const Home = () => {
               />
             </svg>
           </button>
+        </div>
 
+        {/* Stats Section - Positioned on top of image */}
+        <div className="absolute bottom-0 left-0 right-0 z-10">
+          <Stats />
         </div>
       </section>
-
-      {/* Stats Section */}
-      <Stats />
 
       <Hero />
 
@@ -108,11 +81,21 @@ const Home = () => {
         <MissionGoalsSection />
       </div>
 
+      <AutoScrollingMarquee />
+
       <ShowcasingBestWork />
 
       <ClientFeedback items={carouselItems} />
       <div className="bg-black">
         <LatestInsight />
+      </div>
+
+      {/* Scroll to Top Button */}
+      <div
+        className="fixed bottom-8 right-8 w-14 h-14 bg-green-400 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-500 transition-colors shadow-lg z-50"
+        onClick={scrollToTop}
+      >
+        <ArrowUp className="w-6 h-6 text-black" />
       </div>
     </div>
   );

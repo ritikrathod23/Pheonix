@@ -1,4 +1,5 @@
 import React from "react";
+import { Compass, LineChart, CheckCircle2, TrendingUp } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -13,7 +14,7 @@ const Hero = () => {
                 <div className="w-12 h-0.5 bg-black"></div>
               </div>
               <span className="text-sm font-medium tracking-wide">
-                Our Identity
+                Our Mission
               </span>
               <div className="flex items-center gap-2">
                 <div className="w-12 h-0.5 bg-black"></div>
@@ -25,61 +26,41 @@ const Hero = () => {
             </h2>
 
             <p className="text-lg text-gray-600 leading-relaxed">
-              We provide comprehensive financial solutions and strategic
-              planning to help your business reach new heights with smart
-              financing options.
+              We aim to empower investors — from beginners to seasoned traders —
+              with research that unlocks clarity, confidence and long-term
+              success in the financial markets.
             </p>
 
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 text-green-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
+                  <Compass className="w-6 h-6 text-green-600" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900">
-                    Finance Support Online
+                    Make research accessible and actionable
                   </h3>
-                  <p className="text-gray-600">
-                    Access expert financial guidance anytime, anywhere
-                  </p>
                 </div>
               </div>
 
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 text-green-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                    />
-                  </svg>
+                  <LineChart className="w-6 h-6 text-green-600" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900">
-                    Strategic Goal Planning
+                    Fuel disciplined investing with logic and data
                   </h3>
-                  <p className="text-gray-600">
-                    Customized strategies for long-term success
-                  </p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                  <CheckCircle2 className="w-6 h-6 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Deliver clarity in volatile markets
+                  </h3>
                 </div>
               </div>
             </div>
@@ -106,8 +87,8 @@ const Hero = () => {
           <div className="">
             {/* Decorative Circles */}
             <div className="flex items-center justify-center">
-              <div class="w-20 h-40 bg-gradient-to-l from-lime-200 to-green-400/70 rounded-r-full"></div>
-              <div class="w-30 h-60 bg-gradient-to-l from-lime-200 to-green-400/70 rounded-r-full"></div>
+              <div class="w-20 h-40 hidden sm:block  bg-gradient-to-l from-lime-200 to-green-400/70 rounded-r-full"></div>
+              <div class="w-30 h-60 hidden sm:block bg-gradient-to-l from-lime-200 to-green-400/70 rounded-r-full"></div>
               <div className="flex items-center justify-center">
                 <div class="w-40 h-80 bg-gradient-to-l from-lime-200 to-green-400/70 rounded-r-full overflow-hidden">
                   <img

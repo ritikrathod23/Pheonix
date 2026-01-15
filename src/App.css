@@ -1,32 +1,63 @@
 /* HTML: <div class="inner-curve"></div> */
 .inner-curve {
-  --r: 70px; /* control rounded part */
-  --s: 140px; /* control size of the cut */
-  --a: 20deg; /* control the depth of the curvature */
-  --p: 50%; /* control the position */
-
-  height: 220px;
-  aspect-ratio: 12/2;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: var(--r);
-  --_m: var(--r), #000 calc(100% - 1px), #0000;
-  --_d: (var(--s) + var(--r)) * cos(var(--a));
-  mask: radial-gradient(var(--r) at calc(var(--p) + var(--_d)) var(--_m)),
-    radial-gradient(var(--r) at calc(var(--p) - var(--_d)) var(--_m)),
-    radial-gradient(
-        var(--s) at var(--p) calc(-1 * sin(var(--a)) * var(--s)),
-        #0000 100%,
-        #000 calc(100% + 1px)
-      )
-      0 calc(var(--r) * (1 - sin(var(--a)))) no-repeat,
-    linear-gradient(
-      90deg,
-      #000 calc(var(--p) - var(--_d)),
-      #0000 0 calc(var(--p) + var(--_d)),
-      #000 0
-    );
+  --r: 70px;
+  --s: 140px;
+  --a: 20deg;
+  --p: 50%;
 }
 
+/* Mobile: Square with rounded corners, 2x2 grid */
+@media only screen and (max-width: 767px) {
+  .inner-curve {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 1/1;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    border-radius: 2rem;
+    mask: none;
+    padding: 2rem;
+  }
+}
+
+/* Medium devices (768px-991px): Rectangle with rounded corners, single row */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .inner-curve {
+    width: 90%;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    border-radius: 2rem;
+    mask: none;
+    padding: 1.5rem;
+  }
+}
+
+/* Large devices (992px+): Full curved design with circle */
+@media only screen and (min-width: 992px) {
+  .inner-curve {
+    height: 220px;
+    aspect-ratio: 12/2;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    border-radius: var(--r);
+    mask: radial-gradient(var(--r) at calc(var(--p) + (var(--s) + var(--r)) * cos(var(--a))) var(--r), #000 calc(100% - 1px), #0000),
+      radial-gradient(var(--r) at calc(var(--p) - (var(--s) + var(--r)) * cos(var(--a))) var(--r), #000 calc(100% - 1px), #0000),
+      radial-gradient(
+          var(--s) at var(--p) calc(-1 * sin(var(--a)) * var(--s)),
+          #0000 100%,
+          #000 calc(100% + 1px)
+        )
+        0 calc(var(--r) * (1 - sin(var(--a)))) no-repeat,
+      linear-gradient(
+        90deg,
+        #000 calc(var(--p) - (var(--s) + var(--r)) * cos(var(--a))),
+        #0000 0 calc(var(--p) + (var(--s) + var(--r)) * cos(var(--a))),
+        #000 0
+      );
+  }
+}
 .marquee {
   overflow: hidden;
   white-space: nowrap;
@@ -74,3 +105,4 @@
   0% { transform: translateX(-50%); }
   100% { transform: translateX(0); }
 }
+

@@ -4,15 +4,12 @@ import { Check, ArrowRight, ArrowUp } from 'lucide-react';
 export default function MissionGoalsSection() {
   const [activeTab, setActiveTab] = useState('Inspection');
 
-  const tabs = ['Inspection', 'Approach', 'Performance'];
+  const tabs = ['Inspection'];
 
   const features = [
-    { text: 'Efficient Resource Allocation', column: 1 },
-    { text: 'Maintain ethics & compliance', column: 2 },
-    { text: 'Improved Productivity', column: 1 },
-    { text: 'Give Profit-oriented advice', column: 2 },
-    { text: 'Auto reporting system', column: 1 },
-    { text: 'Ensure timely updates', column: 2 }
+    { text: 'Make research accessible and actionable', column: 1 },
+    { text: 'Make research accessible and actionable', column: 2 },
+    { text: 'Deliver clarity in volatile markets', column: 1 },
   ];
 
   return (
@@ -93,7 +90,8 @@ export default function MissionGoalsSection() {
               </div>
 
               <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight mb-6">
-                Achieving Success Through Clear Company Goals.
+               Our Mission
+
               </h2>
             </div>
 
@@ -119,7 +117,7 @@ export default function MissionGoalsSection() {
 
             {/* Description */}
             <p className="text-gray-600 leading-relaxed mb-8">
-              Proin libero feugiat tristique accumsan maecenas potenti ultricies. Consequat magna ante condimentum neque at luctus nibh. Ut hendrerit semper vel class aptent taciti sociosqu. Suscipit auctor curabitur.
+              We aim to empower investors — from beginners to seasoned traders — with research that unlocks clarity, confidence and long-term success in the financial markets.
             </p>
 
             {/* Features Checklist - Two Columns */}
@@ -143,10 +141,7 @@ export default function MissionGoalsSection() {
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
-      <div className="fixed bottom-8 right-8 w-14 h-14 bg-green-400 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-500 transition-colors shadow-lg z-50">
-        <ArrowUp className="w-6 h-6 text-black" />
-      </div>
+      
     </div>
   );
 }

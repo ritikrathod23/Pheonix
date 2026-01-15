@@ -182,61 +182,27 @@ const Card = ({ title, description, image }) => {
 export const carouselItems = [
   {
     key: 1,
-    title: "Strategic Trading Support",
+    title: "Research-First Approach",
     description:
-      "Professional guidance for optimal trading decisions and market analysis.",
+      "No guesswork, just data and disciplined analysis.",
     image:
       "https://images.unsplash.com/photo-1752659504296-16a5fd9fa86a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     key: 2,
-    title: "Investment Portfolio Management",
-    description: "Expert guidance for diversified investment strategies",
+    title: "Easy-to-Understand Guidance",
+    description: "We simplify markets for smarter decisions.",
     image:
       "https://images.unsplash.com/photo-1758873271761-6cfe9b4f000c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     key: 3,
-    title: "Risk Assessment Solutions",
-    description: "Comprehensive risk analysis and mitigation strategies",
+    title: "Actionable Recommendations",
+    description: "Clear entry/exit signals and risk co",
     image:
       "https://images.unsplash.com/photo-1714974528796-e4e7a077d0cc?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
-  {
-    key: 4,
-    title: "Market Research Analytics",
-    description: "Data-driven insights for informed decision making",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=300&fit=crop",
-  },
-  {
-    key: 5,
-    title: "Financial Planning Services",
-    description: "Personalized financial strategies for long-term growth",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop",
-  },
-  {
-    key: 6,
-    title: "Trading Algorithm Development",
-    description: "Custom algorithmic trading solutions for optimal performance",
-    image:
-      "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&h=300&fit=crop",
-  },
-  {
-    key: 7,
-    title: "Wealth Management Advisory",
-    description: "Strategic wealth preservation and growth consultation",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop",
-  },
-  {
-    key: 8,
-    title: "Compliance & Regulatory Support",
-    description: "Ensuring regulatory compliance in financial operations",
-    image:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=300&fit=crop",
-  },
+
 ];
 
 // Example Usage
