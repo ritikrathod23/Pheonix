@@ -37,13 +37,25 @@
 /* Large devices (992px+): Full curved design with circle */
 @media only screen and (min-width: 992px) {
   .inner-curve {
-    height: 220px;
+    min-width: 990px;
+    height: 33vh;
     aspect-ratio: 12/2;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(20px);
     border-radius: var(--r);
-    mask: radial-gradient(var(--r) at calc(var(--p) + (var(--s) + var(--r)) * cos(var(--a))) var(--r), #000 calc(100% - 1px), #0000),
-      radial-gradient(var(--r) at calc(var(--p) - (var(--s) + var(--r)) * cos(var(--a))) var(--r), #000 calc(100% - 1px), #0000),
+    mask:
+      radial-gradient(
+        var(--r) at calc(var(--p) + (var(--s) + var(--r)) * cos(var(--a)))
+          var(--r),
+        #000 calc(100% - 1px),
+        #0000
+      ),
+      radial-gradient(
+        var(--r) at calc(var(--p) - (var(--s) + var(--r)) * cos(var(--a)))
+          var(--r),
+        #000 calc(100% - 1px),
+        #0000
+      ),
       radial-gradient(
           var(--s) at var(--p) calc(-1 * sin(var(--a)) * var(--s)),
           #0000 100%,
@@ -96,13 +108,20 @@
 
 /* Scroll left */
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Scroll right */
 @keyframes marquee-reverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
-

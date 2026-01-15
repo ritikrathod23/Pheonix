@@ -1,5 +1,6 @@
 import React from "react";
 import logo1 from "../assets/logo1.png";
+import { Link, Links } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -87,20 +88,20 @@ const Footer = () => {
                 <h4 className="text-lg font-semibold mb-4">Support Pages</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      to={"/services"}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
                       Help Center
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      to={"/contact-us"}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
                       Contact Us
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a
@@ -126,36 +127,36 @@ const Footer = () => {
                 <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      to={"/about-us"}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
                       About Us
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      to={"/services"}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
                       Services
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      to={"/price"}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
                       Pricing
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      to={"/"}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
                       Insights
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -165,36 +166,36 @@ const Footer = () => {
                 <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      to={"/contact"}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
                       Address
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      to={"/contact"}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
                       Phone
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      to={"/contact"}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
-                      Email 
-                    </a>
+                      Email
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      to={"/contact"}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
                       Blog
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

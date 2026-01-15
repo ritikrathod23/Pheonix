@@ -15,7 +15,7 @@ const Stats = () => {
       </div>
 
       {/* Curve Container */}
-      <div className="inner-curve grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 relative z-0">
+      <div className="inner-curve  grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 relative z-0">
         {/* Stat 1 */}
         <div className="flex flex-col items-center justify-center text-center p-4">
           <p className="text-white text-4xl md:text-5xl lg:text-6xl font-bold">

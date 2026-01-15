@@ -3,7 +3,7 @@ import { Compass, LineChart, CheckCircle2, TrendingUp } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="py-20 z-1 mt-10 relative bg-white rounded-[60px]">
+    <section className="py-20 pt-50 md:pt-10 relative top-65   bg-white rounded-[60px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}

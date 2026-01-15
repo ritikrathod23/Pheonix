@@ -22,20 +22,20 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Background Image - Empty for now */}
-      <div className="absolute brightness-75 inset-0 z-0 bg-gray-900">
-        <img src={HeroImage} alt="" className="w-full h-full object-cover" />
+      <div className="absolute brightness-75 inset-0 z-0 bg-gray-900 h-full">
+        <img src={HeroImage} alt="" className="w-full h-full md:h-max  object-fill md:object-cover" />
       </div>
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center">
+      <section className="h-screen flex items-center justify-center">
         {/* Content */}
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-8">
+        <div className="relative pt-40 md:pt-5 z-10 text-center text-white px-4 max-w-4xl mx-auto">
+          <h1 className="text-3xl  md:text-6xl font-bold mb-8">
             Transform Your Investing With
             <br />
             Research-Driven Insights
           </h1>
 
-          <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-12">
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-4 md:mb-12">
             <p className="text-xl text-white ">
               At Pheonix Capital Research, we turn deep financial analysis into
               clear,{" "}
@@ -47,7 +47,7 @@ const Home = () => {
             </p>
           </div>
 
-          <button className="bg-gradient-to-l from-lime-200 to-green-400/70 hover:bg-green-700 text-black font-semibold py-4 px-8 rounded-lg inline-flex items-center space-x-2 transition-colors">
+          <button className="bg-gradient-to-l from-lime-200 to-green-400/70 hover:bg-green-700 text-black font-semibold py-2 md:py-4 px-8 rounded-lg inline-flex items-center space-x-2 transition-colors">
             <span>Free Started</span>
             <svg
               className="w-5 h-5"
@@ -66,7 +66,7 @@ const Home = () => {
         </div>
 
         {/* Stats Section - Positioned on top of image */}
-        <div className="absolute bottom-0 left-0 right-0 z-10">
+        <div className="absolute top-full lg:bottom-0 left-0 right-0 z-10">
           <Stats />
         </div>
       </section>
