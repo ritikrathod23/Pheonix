@@ -40,7 +40,7 @@ export default function ExpandableCards() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-100  py-4  md:py-16 px-4 relative">
+    <div className="w-full rounded-t-[60px] min-h-screen bg-gray-100  py-4  md:py-16 px-4 relative">
 
       {/* LARGE SCREENS — ORIGINAL LAYOUT */}
       <div className="hidden lg:block max-w-7xl mx-auto">

@@ -3,9 +3,7 @@ import ExpandableCards from '../ui/ExpandableCards'
 
 function TailoredServices() {
   return (
-    <div>
-        <ExpandableCards     />
-    </div>
+    <ExpandableCards />
   )
 }
 

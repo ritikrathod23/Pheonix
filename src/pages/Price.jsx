@@ -1,11 +1,14 @@
 import { Check, CreditCard, Building2, Copy, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Price() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-green-950/80 h-[450px] ">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative h-[450px] ">
+        <img className="absolute inset-0 w-full h-full object-cover" src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/50/a1/81/af/38/v1_E10/E10FSVNH.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=4247f267c575aa42a6b7d8cd4b3c880cd7914909c4bb3e7db5d26643ccd36152" alt="about" />
+        <div className="absolute inset-0 bg-green-950/80"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <h1 className="text-5xl text-white mt-28 font-bold text-center">
             Pricing / Plans
           </h1>
@@ -38,11 +41,37 @@ export default function Price() {
           </div>
 
           <div className="w-full bg-gray-50 px-4 sm:px-6 lg:px-6  py-20 flex justify-center">
-            <div className="w-full max-w-7xl shadow-2xl bg-white rounded-2xl">
+            <motion.div
+              className="w-full max-w-7xl shadow-2xl bg-white rounded-2xl"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               {/* Top Section */}
-              <div className="grid grid-cols-1  md:grid-cols-3  divide-gray-200 divide-y md:divide-y-0 md:divide-x  border-gray-200">
+              <motion.div
+                className="grid grid-cols-1  md:grid-cols-3  divide-gray-200 divide-y md:divide-y-0 md:divide-x  border-gray-200"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.2
+                    }
+                  }
+                }}
+              >
                 {/* ----- BASIC PLAN ----- */}
-                <div className="p-10 text-center">
+                <motion.div
+                  className="p-10 text-center"
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                >
                   <p className="text-lg font-semibold">• Basic Plan</p>
 
                   <p className="text-5xl font-bold my-3">
@@ -61,10 +90,17 @@ export default function Price() {
                       ),
                     )}
                   </div>
-                </div>
+                </motion.div>
 
                 {/* ----- STANDARD PLAN ----- */}
-                <div className="p-10 text-center">
+                <motion.div
+                  className="p-10 text-center"
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                >
                   <p className="text-lg font-semibold">• Premium Plan</p>
                   <p className="text-5xl font-bold my-3">
                     $100{" "}
@@ -83,10 +119,17 @@ export default function Price() {
                       <Feature key={i} text={item} />
                     ))}
                   </div>
-                </div>
+                </motion.div>
 
                 {/* ----- UNLIMITED PLAN ----- */}
-                <div className="p-10 text-center">
+                <motion.div
+                  className="p-10 text-center"
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                >
                   <p className="text-lg font-semibold">• Elite Plan</p>
                   <p className="text-5xl font-bold my-3">
                     $999{" "}
@@ -105,9 +148,9 @@ export default function Price() {
                       <Feature key={i} text={item} />
                     ))}
                   </div>
-                </div>
-              </div>
-            </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -178,7 +221,13 @@ function PaymentSection() {
         </div>
 
         {/* Bank Details */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <motion.div
+          className="bg-white rounded-2xl shadow-xl p-8"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <div className="flex items-center gap-3 mb-6">
             <Building2 className="w-8 h-8 text-green-600" />
             <h3 className="text-2xl font-bold text-gray-900">
@@ -224,10 +273,16 @@ function PaymentSection() {
               in the payment description
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Accepted Payment Methods */}
-        <div className="bg-white my-5 rounded-2xl shadow-xl p-8">
+        <motion.div
+          className="bg-white my-5 rounded-2xl shadow-xl p-8"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        >
           <div className="flex items-center gap-3 mb-6">
             <CreditCard className="w-8 h-8 text-green-600" />
             <h3 className="text-2xl font-bold text-gray-900">
@@ -237,11 +292,29 @@ function PaymentSection() {
           <p className="text-gray-600 mb-6">
             We accept multiple payment methods for your convenience
           </p>
-          <div className="grid grid-cols-2 gap-4">
+          <motion.div
+            className="grid grid-cols-2 gap-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.1
+                }
+              }
+            }}
+          >
             {paymentMethods.map((method, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="border-2 border-gray-200 rounded-xl p-6 hover:border-green-500 hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                variants={{
+                  hidden: { opacity: 0, scale: 0.9 },
+                  visible: { opacity: 1, scale: 1 }
+                }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
               >
                 <div className="flex flex-col items-center text-center">
                   <div
@@ -253,13 +326,19 @@ function PaymentSection() {
                     {method.name}
                   </span>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Additional Info */}
-        <div className="mt-8 bg-white rounded-2xl shadow-xl p-8">
+        <motion.div
+          className="mt-8 bg-white rounded-2xl shadow-xl p-8"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+        >
           <h4 className="text-xl font-bold text-gray-900 mb-4">
             Payment Instructions
           </h4>
@@ -270,11 +349,10 @@ function PaymentSection() {
               </div>
               <div>
                 <h5 className="font-semibold text-gray-900 mb-1">
-                  Choose Your Plan
+                  Include Client ID
                 </h5>
                 <p className="text-sm text-gray-600">
-                  Select the plan that best fits your needs from the options
-                  above
+                  Always mention your client ID in the payment reference/description
                 </p>
               </div>
             </div>
@@ -284,11 +362,10 @@ function PaymentSection() {
               </div>
               <div>
                 <h5 className="font-semibold text-gray-900 mb-1">
-                  Make Payment
+                  Payment Confirmation
                 </h5>
                 <p className="text-sm text-gray-600">
-                  Use your preferred payment method or transfer to our bank
-                  account
+                  Send payment confirmation to info@pheonixcapitalresearch.com with transaction details
                 </p>
               </div>
             </div>
@@ -297,14 +374,53 @@ function PaymentSection() {
                 3
               </div>
               <div>
-                <h5 className="font-semibold text-gray-900 mb-1">Get Access</h5>
+                <h5 className="font-semibold text-gray-900 mb-1">Processing Time</h5>
                 <p className="text-sm text-gray-600">
-                  Receive instant access to your plan after payment confirmation
+                  Bank transfers take 1-2 business days, UPI payments are instant
                 </p>
               </div>
             </div>
           </div>
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+            <div className="flex gap-4">
+              <div className="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">
+                4
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-900 mb-1">
+                  Minimum Amount
+                </h5>
+                <p className="text-sm text-gray-600">
+                  Minimum investment amount is ₹10,000 for new accounts
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">
+                5
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-900 mb-1">
+                  Currency & Tax
+                </h5>
+                <p className="text-sm text-gray-600">
+                  All payments in Indian Rupees (INR). GST applicable as per government regulations
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">
+                6
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-900 mb-1">Receipt</h5>
+                <p className="text-sm text-gray-600">
+                  Payment receipts will be sent to your registered email within 24 hours
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );

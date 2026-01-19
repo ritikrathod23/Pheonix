@@ -1,23 +1,17 @@
 import React from 'react';
-import logo1 from "../assets/logo1.png"
+import bird from "../assets/bird.png"
 
 
 export default function AutoScrollingMarquee({ logo }) {
   const scrollingText = "• Featured insights in major newsletters •  Trusted by hundreds of subscribers ";
 
   return (
-    <div className="w-full bg-white py-4 overflow-hidden group">
+    <div className="w-full py-4 pb-16 overflow-hidden group">
       <div className="relative flex">
         {/* First copy of text */}
         <div className="flex animate-scroll whitespace-nowrap">
           {scrollingText.split(' • ').map((item, index) => (
             <span key={`first-${index}`} className="flex items-center">
-              {/* Logo before each text item */}
-              {/* <img 
-                src={logo1} 
-                alt="Logo" 
-                className="h-12 w-12 bg-black sm:h-16 sm:w-16 lg:h-20 lg:w-20 object-contain mr-3 sm:mr-4 lg:mr-6"
-              /> */}
               <span className="text-gray-300 text-4xl sm:text-6xl lg:text-[100px] font-medium mx-4 sm:mx-6 lg:mx-8 hover:bg-gradient-to-r hover:from-green-400 hover:to-lime-200 hover:bg-clip-text hover:text-transparent transition-all duration-300">
                 {item}
               </span>
@@ -28,16 +22,10 @@ export default function AutoScrollingMarquee({ logo }) {
           ))}
         </div>
 
-        {/* Second copy of text for seamless loop */}
+        Second copy of text for seamless loop
         <div className="flex animate-scroll whitespace-nowrap">
           {scrollingText.split(' • ').map((item, index) => (
             <span key={`second-${index}`} className="flex items-center">
-              {/* Logo before each text item */}
-              <img 
-                src={logo} 
-                alt="Logo" 
-                className="h-12 w-12 sm:h-16 sm:w-16 lg:h-20 lg:w-20 object-contain mr-3 sm:mr-4 lg:mr-6"
-              />
               <span className="text-gray-300 text-4xl sm:text-6xl lg:text-[100px] font-medium mx-4 sm:mx-6 lg:mx-8 hover:bg-gradient-to-r hover:from-green-400 hover:to-lime-200 hover:bg-clip-text hover:text-transparent transition-all duration-300">
                 {item}
               </span>
@@ -76,7 +64,7 @@ export default function AutoScrollingMarquee({ logo }) {
 export function AutoScrollingMarqueeAlt({ logo }) {
   const items = [
     "Latest Updates",
-    "Breaking News", 
+    "Breaking News",
     "Technology Trends",
     "Market Analysis",
     "Financial Insights",
@@ -92,9 +80,9 @@ export function AutoScrollingMarqueeAlt({ logo }) {
           {items.map((item, index) => (
             <div key={`alt-first-${index}`} className="flex items-center mx-6">
               {/* Logo before each text item */}
-              <img 
-                src={logo} 
-                alt="Logo" 
+              <img
+                src={logo}
+                alt="Logo"
                 className="h-8 w-8 object-contain mr-3"
               />
               <span className="text-white text-base font-medium hover:bg-gradient-to-r hover:from-green-400 hover:to-lime-200 hover:bg-clip-text hover:text-transparent transition-all duration-300">
@@ -110,9 +98,9 @@ export function AutoScrollingMarqueeAlt({ logo }) {
           {items.map((item, index) => (
             <div key={`alt-second-${index}`} className="flex items-center mx-6">
               {/* Logo before each text item */}
-              <img 
-                src={logo} 
-                alt="Logo" 
+              <img
+                src={logo}
+                alt="Logo"
                 className="h-8 w-8 object-contain mr-3"
               />
               <span className="text-white text-base font-medium hover:bg-gradient-to-r hover:from-green-400 hover:to-lime-200 hover:bg-clip-text hover:text-transparent transition-all duration-300">

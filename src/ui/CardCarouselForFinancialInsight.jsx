@@ -99,11 +99,10 @@ const CardCarouselForFinancialInsight = ({ items }) => {
         }}
       >
         <div
-          className={`flex transition-transform ${
-            isDragging
-              ? "duration-0 cursor-grabbing"
-              : "duration-300 cursor-grab"
-          }`}
+          className={`flex transition-transform ${isDragging
+            ? "duration-0 cursor-grabbing"
+            : "duration-300 cursor-grab"
+            }`}
           style={{
             transform: `translateX(${calculateTransform()}%)`,
             width: `${(items?.length / slidesQty) * 100}%`,
@@ -133,11 +132,10 @@ const CardCarouselForFinancialInsight = ({ items }) => {
             key={index}
             type="button"
             onClick={() => goToSlide(index)}
-            className={`transition-all duration-300 rounded-full ${
-              index === currentIndex
-                ? "bg-gradient-to-l from-lime-200 to-green-400/70 w-8 h-3"
-                : "bg-gray-400 w-3 h-3 hover:bg-gray-600"
-            }`}
+            className={`transition-all duration-300 rounded-full ${index === currentIndex
+              ? "bg-gradient-to-l from-lime-200 to-green-400/70 w-8 h-3"
+              : "bg-gray-400 w-3 h-3 hover:bg-gray-600"
+              }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
@@ -148,13 +146,13 @@ const CardCarouselForFinancialInsight = ({ items }) => {
 
 const Card = ({ title, description, image }) => {
   return (
-    <div className="group w-[400px] h-[450px] text-white max-w-md bg-neutral-800 rounded-3xl shadow-lg hover:shadow-xl transition-all space-y-5  duration-500 p-4 py-6 overflow-hidden">
+    <div className="group w-[400px] h-[450px] max-w-md bg-gray-100 rounded-3xl shadow-lg hover:shadow-xl transition-all space-y-5  duration-500 p-4 py-6 overflow-hidden">
       {/* Title */}
-      <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
+      <h3 className="text-2xl font-bold  mb-3">{title}</h3>
 
       {/* Description/Review - Slides up from bottom, no space when hidden */}
       <div className="max-h-0 group-hover:max-h-40 overflow-hidden transition-all duration-500 ease-in-out">
-        <p className="text-gray-100 text-md leading-relaxed transform translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+        <p className="text-gray-800 text-md leading-relaxed transform translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
           {description}
         </p>
       </div>

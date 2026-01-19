@@ -1,33 +1,37 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import React from "react";
+import { ArrowRight } from "lucide-react";
+import { motion } from 'framer-motion'
 
 export default function LatestInsight() {
   const articles = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+      image:
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
       date: "June 24, 2025",
       title: " How to Build a Diversified Portfolio",
-      link: "#"
+      link: "#",
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80",
+      image:
+        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80",
       date: "June 24, 2025",
       title: "Top Equity Picks for 2026",
-      link: "#"
+      link: "#",
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
+      image:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
       date: "June 24, 2025",
       title: "Understanding Market Volatility",
-      link: "#"
-    }
+      link: "#",
+    },
   ];
 
   return (
-    <div className="w-full rounded-t-[60px] bg-gray-100 py-16 px-8">
+    <div className="w-full  bg-gray-100 py-16 px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -36,7 +40,9 @@ export default function LatestInsight() {
               <div className="w-3 h-3 bg-black rounded-full"></div>
               <div className="w-12 h-0.5 bg-black"></div>
             </div>
-            <span className="text-black text-sm font-medium tracking-wide">Recent Blogs</span>
+            <span className="text-black text-sm font-medium tracking-wide">
+              Recent Blogs
+            </span>
             <div className="flex items-center gap-2">
               <div className="w-12 h-0.5 bg-black"></div>
               <div className="w-3 h-3 bg-black rounded-full"></div>
@@ -51,7 +57,12 @@ export default function LatestInsight() {
         {/* Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles.map((article) => (
-            <div
+            <motion.div
+              // ref={scrollRef}
+              initial={{ opacity: 0, y: 80 }} // Start left + hidden
+              whileInView={{ opacity: 1, y: 0 }} // Slide to place when visible
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              // viewport={{ root: scrollRef, once: true }} // animates once (optional)
               key={article.id}
               className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
             >
@@ -89,7 +100,7 @@ export default function LatestInsight() {
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
