@@ -67,6 +67,7 @@ const Services = () => {
   };
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
       <div className="relative h-[450px] ">
         <img className="absolute inset-0 w-full h-full object-cover" src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/d9/e5/f2/c1/44/v1_E10/E10TCDP.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=feed81f890ddedcb53429bd1b56aefa445b936d7ed488fecf0bc2765ec212f5e" alt="about" />
         <div className="absolute inset-0 bg-green-950/80"></div>
@@ -79,7 +80,9 @@ const Services = () => {
           </p>
         </div>
       </div>
-      <div className="bg-green-950/80">
+
+      {/* Main Content */}
+      <div className="relative -mt-16 z-20">
         <div className="grid bg-gray-50 rounded-t-[60px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-4 sm:px-6 md:px-8 lg:px-40 py-20 gap-8">
           {services.map((service) => (
             <ServiceCard

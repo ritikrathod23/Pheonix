@@ -17,7 +17,9 @@ export default function Price() {
           </p>
         </div>
       </div>
-      <div className=" bg-green-950/80 ">
+
+      {/* Main Content */}
+      <div className=" relative -mt-16 z-20">
         <div className="rounded-t-[60px] py-10 bg-gray-50">
           <div className="flex items-center rounded-full justify-center gap-3 mb-4">
             <div className="flex items-center gap-2">

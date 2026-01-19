@@ -10,7 +10,9 @@ function Contact() {
           Contact Us
         </h1>
       </div>
-      <div className="bg-green-950/80">
+
+      {/* Main Content */}
+      <div className="relative -mt-16 z-20">
         <SendQuery />
       </div>
 
