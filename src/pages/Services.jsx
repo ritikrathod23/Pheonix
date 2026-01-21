@@ -1,9 +1,9 @@
 import React from "react";
-import FinancialInsight from "../components/FinancialInsight";
+import FinancialInsight from "../components/Service/FinancialInsight";
 import SendQuery from "../components/SendQuery";
 import TailoredServices from "../components/TailoredServices";
 import { ArrowUp, LineChart } from "lucide-react";
-import ServiceCard from "../components/ServiceCard";
+import ServiceCard from "../components/Service/ServiceCard";
 import {
   FileText,
   HandCoins,

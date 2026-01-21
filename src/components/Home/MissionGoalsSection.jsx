@@ -1,9 +1,8 @@
-import React, { useRef, useState } from "react";
-import { Play, ArrowRight } from "lucide-react";
+import React, { useRef } from "react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function MissionGoalsSection() {
-  const [isPlaying, setIsPlaying] = useState(false);
   const scrollRef = useRef(null);
 
   return (
@@ -12,12 +11,6 @@ export default function MissionGoalsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
           {/* Left Side - Content */}
           <div className="order-2 lg:order-1">
-            {/* Badge */}
-            <div className="inline-block mb-4 sm:mb-6">
-              <span className="bg-gradient-to-l from-lime-200 to-green-400/70 text-gray-900 text-xs sm:text-sm font-bold px-4 sm:px-6 py-2 sm:py-2.5 rounded-md uppercase tracking-wider">
-                About Us
-              </span>
-            </div>
 
             {/* Title */}
             <motion.h2
@@ -26,9 +19,9 @@ export default function MissionGoalsSection() {
               whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
               transition={{ duration: 0.8, ease: "easeOut" }}
               // viewport={{ root: scrollRef, once: true }} // animates once (optional)
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6"
             >
-              We See Your Potential, We Invest in Your Future
+              Trusted Research Calls for Confident Trading.
             </motion.h2>
 
             {/* Description */}
@@ -40,10 +33,7 @@ export default function MissionGoalsSection() {
               // viewport={{ root: scrollRef, once: true }} // animates once (optional)
               className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8"
             >
-              We provide a professional dignissim at cursus elefeind norma arcu.
-              Pellentesque accumsan est in tempus etos ullamcorper sem quam
-              suscipit lacus maecenas tortor. Suspendisse gravida ornare non
-              mattis velit rutrum modest.
+              Pheonix Capital Research is a financial company providing professional services for trading stocks and commodities, aiming to maximize client profits through market knowledge, expertise, fundamental monetary concepts, and fair, knowledgeable training.
             </motion.p>
 
             {/* Get Started Button */}

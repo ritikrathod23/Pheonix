@@ -1,7 +1,5 @@
 import React from "react";
-import ImageCarousel from "../ui/ImageCarousel";
-import CardCarousel from "../ui/CardCarousel";
-import CardCarouselForShowingWork from "../ui/CardCarouselForShowingWork";
+import CardCarouselForShowingWork from "../../ui/CardCarouselForShowingWork";
 
 function ShowcasingBestWork() {
   return (

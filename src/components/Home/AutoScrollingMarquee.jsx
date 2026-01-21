@@ -1,44 +1,39 @@
 import React from 'react';
-import bird from "../assets/bird.png"
 
 
-export default function AutoScrollingMarquee({ logo }) {
-  const scrollingText = "• Featured insights in major newsletters •  Trusted by hundreds of subscribers ";
+export default function AutoScrollingMarquee() {
+
 
   return (
     <div className="w-full py-4 pb-16 overflow-hidden group">
       <div className="relative flex">
         {/* First copy of text */}
         <div className="flex animate-scroll whitespace-nowrap">
-          {scrollingText.split(' • ').map((item, index) => (
+          {["Featured insights in major newsletters", "Trusted by hundreds of subscribers"].map((item, index) => (
             <span key={`first-${index}`} className="flex items-center">
+              <span className="text-green-400 text-4xl sm:text-6xl lg:text-[100px] font-medium mx-2 sm:mx-3 lg:mx-4">•</span>
               <span className="text-gray-300 text-4xl sm:text-6xl lg:text-[100px] font-medium mx-4 sm:mx-6 lg:mx-8 hover:bg-gradient-to-r hover:from-green-400 hover:to-lime-200 hover:bg-clip-text hover:text-transparent transition-all duration-300">
                 {item}
               </span>
-              {index < scrollingText.split(' • ').length - 1 && (
-                <span className="text-green-400 mx-2 sm:mx-3 lg:mx-4">•</span>
-              )}
             </span>
           ))}
         </div>
 
-        Second copy of text for seamless loop
+        {/* Second copy of text for seamless loop */}
         <div className="flex animate-scroll whitespace-nowrap">
-          {scrollingText.split(' • ').map((item, index) => (
+          {["Featured insights in major newsletters", "Trusted by hundreds of subscribers"].map((item, index) => (
             <span key={`second-${index}`} className="flex items-center">
+              <span className="text-green-400 text-4xl sm:text-6xl lg:text-[100px] font-medium mx-2 sm:mx-3 lg:mx-4">•</span>
               <span className="text-gray-300 text-4xl sm:text-6xl lg:text-[100px] font-medium mx-4 sm:mx-6 lg:mx-8 hover:bg-gradient-to-r hover:from-green-400 hover:to-lime-200 hover:bg-clip-text hover:text-transparent transition-all duration-300">
                 {item}
               </span>
-              {index < scrollingText.split(' • ').length - 1 && (
-                <span className="text-green-400 mx-2 sm:mx-3 lg:mx-4">•</span>
-              )}
             </span>
           ))}
         </div>
       </div>
 
       {/* Add the animation CSS */}
-      <style jsx>{`
+      <style>{`
         @keyframes scroll {
           0% {
             transform: translateX(0);
@@ -52,9 +47,7 @@ export default function AutoScrollingMarquee({ logo }) {
           animation: scroll 30s linear infinite;
         }
 
-        .group:hover .animate-scroll {
-          animation-play-state: paused;
-        }
+
       `}</style>
     </div>
   );
@@ -112,7 +105,7 @@ export function AutoScrollingMarqueeAlt({ logo }) {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes scroll-alt {
           0% {
             transform: translateX(0);
@@ -126,9 +119,7 @@ export function AutoScrollingMarqueeAlt({ logo }) {
           animation: scroll-alt 25s linear infinite;
         }
 
-        .group:hover .animate-scroll-alt {
-          animation-play-state: paused;
-        }
+
       `}</style>
     </div>
   );

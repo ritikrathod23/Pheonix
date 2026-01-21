@@ -2,7 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { Star } from "lucide-react";
 
 
-const CardCarousel = ({ items }) => {
+const CardCarousel = ({ items, children }) => {
+  const childrenArray = React.Children.toArray(children);
+  const itemsCount = childrenArray.length > 0 ? childrenArray.length : items?.length || 0;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -12,7 +15,7 @@ const CardCarousel = ({ items }) => {
   );
   const carouselRef = useRef(null);
 
-  const maxIndex = Math.max(0, items?.length - slidesQty);
+  const maxIndex = Math.max(0, itemsCount - slidesQty);
 
   const goToSlide = (index) => {
     const clampedIndex = Math.max(0, Math.min(maxIndex, index));
@@ -58,12 +61,12 @@ const CardCarousel = ({ items }) => {
       const newSlidesQty =
         window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
       setSlidesQty(newSlidesQty);
-      setCurrentIndex((prev) => Math.min(prev, items?.length - newSlidesQty));
+      setCurrentIndex((prev) => Math.min(prev, itemsCount - newSlidesQty));
     };
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [items?.length]);
+  }, [itemsCount]);
 
   useEffect(() => {
     if (isDragging) {
@@ -103,26 +106,38 @@ const CardCarousel = ({ items }) => {
           className={`flex transition-transform ${isDragging ? "duration-0 cursor-grabbing" : "duration-300 cursor-grab"}`}
           style={{
             transform: `translateX(${calculateTransform()}%)`,
-            width: `${(items?.length / slidesQty) * 100}%`,
+            width: `${(itemsCount / slidesQty) * 100}%`,
           }}
         >
-          {items?.map((item, index) => (
-            <div
-              key={item.key || index}
-              className="px-2"
-              style={{ width: `${100 / items.length}%` }}
-            >
-              <div className="flex justify-center items-center w-full h-full">
-                <Card
-                  title={item?.title}
-                  description={item?.description}
-                  review={item?.review}
-                  name={item?.name}
-                  avatar={item?.avatar}
-                />
+          {childrenArray.length > 0
+            ? childrenArray.map((child, index) => (
+              <div
+                key={index}
+                className="px-2"
+                style={{ width: `${100 / itemsCount}%` }}
+              >
+                <div className="flex justify-center items-center w-full h-full">
+                  {child}
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+            : items?.map((item, index) => (
+              <div
+                key={item.key || index}
+                className="px-2"
+                style={{ width: `${100 / itemsCount}%` }}
+              >
+                <div className="flex justify-center items-center w-full h-full">
+                  <Card
+                    title={item?.title}
+                    description={item?.description}
+                    review={item?.review}
+                    name={item?.name}
+                    avatar={item?.avatar}
+                  />
+                </div>
+              </div>
+            ))}
         </div>
       </div>
 
@@ -149,7 +164,7 @@ const Card = ({ title, description, review, name, avatar }) => {
 
   return (
     <div
-      className="w-[400px] h-[400px] text-white space-y-8 max-w-md bg-neutral-100 rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-8"
+      className="w-[400px] h-[400px] text-black space-y-8 max-w-md bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-8"
     >
       {/* Title */}
       <h3 className="text-2xl text-black font-bold mb-3">{title}</h3>

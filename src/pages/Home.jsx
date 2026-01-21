@@ -1,14 +1,20 @@
 import React, { useState } from "react";
-import MissionGoalsSection from "../components/MissionGoalsSection";
+import MissionGoalsSection from "../components/Home/MissionGoalsSection";
 import HeroImage from "../assets/HeroImage.png";
-import ShowcasingBestWork from "../components/ShowcasingBestWork";
-import ClientFeedback from "../components/ClientFeedback";
+import ShowcasingBestWork from "../components/Home/ShowcasingBestWork";
+import ClientFeedback from "../components/Home/ClientFeedback";
 import { carouselItems } from "../data/carouselData";
-import LatestInsight from "../components/LatestInsight";
+import LatestInsight from "../components/Home/LatestInsight";
 import { ArrowUp, ArrowRight } from "lucide-react";
-import AutoScrollingMarquee from "../components/AutoScrollingMarquee";
-import OurServicesSection from "../components/OurBestServices";
-import HeroSection from "../components/HeroSection";
+import AutoScrollingMarquee from "../components/Home/AutoScrollingMarquee";
+import OurServicesSection from "../components/Home/OurBestServices";
+import HeroSection from "../components/Home/HeroSection";
+import InvestmentStrategy from "../components/Home/InvestmentStrategy";
+import WorkProcessSection from "../components/Home/WorkProcessSection";
+import WhyChooseUs from "../components/Home/WhyChooseUs";
+import FAQSection from "../components/Home/FAQSecton";
+import InvestorStats from "../components/Home/InvestorStats";
+import ReelsSection from "../components/Home/ReelsSection";
 
 const Home = () => {
   const scrollToTop = () => {
@@ -32,9 +38,21 @@ const Home = () => {
 
       <OurServicesSection />
 
+      {/* <InvestmentStrategy /> */}
+
+      <WorkProcessSection />
+
+      <WhyChooseUs />
+
+      <InvestorStats />
+
       <ShowcasingBestWork />
 
+      <ReelsSection />
+
       <ClientFeedback items={carouselItems} />
+
+      <FAQSection />
 
       <LatestInsight />
 

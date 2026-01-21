@@ -1,6 +1,6 @@
 import React from "react";
 
-import CardCarouselForFinancialInsight from "../ui/CardCarouselForFinancialInsight";
+import CardCarouselForFinancialInsight from "../../ui/CardCarouselForFinancialInsight";
 
 function FinancialInsight() {
   return (

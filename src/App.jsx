@@ -12,6 +12,10 @@ import AboutUs from "./pages/AboutUs";
 import Price from "./pages/Price";
 import LoadingSpinner from "./components/LoadingSpinner";
 import ScrollToTop from "./components/ScrollToTop";
+import PrivacyPolicy from "./components/Footer/PrivacyPolicy";
+import TermsConditions from "./components/Footer/TermsConditions";
+import Disclosure from "./components/Footer/DisClosure";
+import UserAgreement from "./components/Footer/UserAgreement";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -41,6 +45,10 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="about-us" element={<AboutUs />} />
           <Route path="price" element={<Price />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="disclosure" element={<Disclosure />} />
+          <Route path="terms-and-condition" element={<TermsConditions />} />
+          <Route path="user-agreement" element={<UserAgreement />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

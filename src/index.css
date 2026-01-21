@@ -1,19 +1,17 @@
 /* src/index.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
 
 @import "tailwindcss";
 @source "../.flowbite-react/class-list.json";
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
-
 
 :root {
   --card-light: #dfe2e1;
   --card-dark: #1f6042;
 }
-
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
