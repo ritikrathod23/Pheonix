@@ -43,7 +43,7 @@ export default function MissionGoalsSection() {
               whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
               transition={{ duration: 0.8, ease: "easeOut" }}
               // viewport={{ root: scrollRef, once: true }} // animates once (optional)
-              className="flex items-center gap-2 sm:gap-3 bg-gradient-to-l from-lime-200 to-green-400/70 hover:from-lime-300 hover:to-green-500 text-gray-900 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl group text-sm sm:text-base"
+              className="flex items-center gap-2 sm:gap-3 bg-gradient-to from-lime-200 to-green-400/70 hover:from-lime-300 hover:to-green-500 text-gray-900 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl group text-sm sm:text-base"
             >
               Get Started
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />

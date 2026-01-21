@@ -15,6 +15,7 @@ import WhyChooseUs from "../components/Home/WhyChooseUs";
 import FAQSection from "../components/Home/FAQSecton";
 import InvestorStats from "../components/Home/InvestorStats";
 import ReelsSection from "../components/Home/ReelsSection";
+import ContainerVariants from "../components/Home/ContainerVariants";
 
 const Home = () => {
   const scrollToTop = () => {
@@ -47,6 +48,8 @@ const Home = () => {
       <InvestorStats />
 
       <ShowcasingBestWork />
+
+      <ContainerVariants />
 
       <ReelsSection />
 
