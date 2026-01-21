@@ -14,7 +14,7 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import ScrollToTop from "./components/ScrollToTop";
 import PrivacyPolicy from "./components/Footer/PrivacyPolicy";
 import TermsConditions from "./components/Footer/TermsConditions";
-import Disclosure from "./components/Footer/DisClosure";
+import Disclosure from "./components/Footer/Disclosure";
 import UserAgreement from "./components/Footer/UserAgreement";
 
 function App() {
