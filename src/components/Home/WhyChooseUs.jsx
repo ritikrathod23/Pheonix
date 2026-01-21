@@ -66,7 +66,7 @@ const WhyChooseUs = () => {
                         >
                             <h2 className="text-5xl font-bold text-green-500">+98%</h2>
                             <p className="text-gray-600 mt-2">
-                                Enhanced portfolio efficiency through data-driven investment models.
+                                Observed across past trading calls based on research-led analysis and risk management.
                             </p>
                         </motion.div>
 
@@ -78,7 +78,7 @@ const WhyChooseUs = () => {
                         >
                             <h2 className="text-5xl font-bold text-green-500">+67%</h2>
                             <p className="text-gray-600 mt-2">
-                                Growth in client capital driven by strategic equity allocation and long-term compounding.
+                                Structured trading calls designed to improve discipline, execution, and consistency over time.
                             </p>
                         </motion.div>
                     </div>
