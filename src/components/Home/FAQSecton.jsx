@@ -55,13 +55,13 @@ export default function FAQSection() {
                         </div>
                     </div>
 
-                    <h2 className="text-4xl font-bold text-green-900 leading-snug mb-6">
+                    <h2 className="text-4xl font-bold text-gray-900 leading-snug mb-6">
                         Frequently Asked <br />
                         Questions About Our <br />
                         Investment Services
                     </h2>
 
-                    <p className="text-green-700 max-w-md mb-10">
+                    <p className="text-gray-700 max-w-md mb-10">
                         Smart investing focuses on disciplined strategy, risk management,
                         and sustainable growth guided by experienced financial experts.
                     </p>
@@ -83,8 +83,8 @@ export default function FAQSection() {
                                 <Phone size={18} />
                             </div>
                             <div>
-                                <p className="text-sm text-green-700">Talk to an Advisor</p>
-                                <p className="font-semibold text-green-900">
+                                <p className="text-sm text-gray-700">Talk to an Advisor</p>
+                                <p className="font-semibold text-gray-900">
                                     +91 98 76 54 3210
                                 </p>
                             </div>
@@ -111,14 +111,14 @@ export default function FAQSection() {
                                 }
                                 className="w-full flex justify-between items-center text-left px-6 py-5"
                             >
-                                <span className="font-semibold text-lg text-green-900">
+                                <span className="font-semibold text-lg text-gray-900">
                                     {index + 1}. {faq.question}
                                 </span>
 
                                 <motion.span
                                     animate={{ rotate: activeIndex === index ? 180 : 0 }}
                                 >
-                                    <ChevronDown className="text-green-700" />
+                                    <ChevronDown className="text-gray-700" />
                                 </motion.span>
                             </button>
 
@@ -131,7 +131,7 @@ export default function FAQSection() {
                                         transition={{ duration: 0.3 }}
                                         className="overflow-hidden"
                                     >
-                                        <div className="px-6 pb-5 text-green-700 text-sm leading-relaxed">
+                                        <div className="px-6 pb-5 text-gray-700 text-sm leading-relaxed">
                                             {faq.answer}
                                         </div>
                                     </motion.div>

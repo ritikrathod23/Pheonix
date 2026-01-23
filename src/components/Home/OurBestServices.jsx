@@ -84,7 +84,7 @@ export default function OurServicesSection() {
         {/* Header */}
         <div className="mb-12 sm:mb-16">
           <motion.h1
-            className="text-6xl py-3 text-center font-bold flex flex-wrap justify-center"
+            className="text-3xl md:text-6xl py-3 text-center font-bold flex flex-wrap justify-center"
             variants={{
               hidden: {},
               visible: { transition: { staggerChildren: 0.04 } },
