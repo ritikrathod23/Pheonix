@@ -31,7 +31,7 @@ const Home = () => {
 
       <HeroSection />
 
-      <div className="relative -top-15 z-20">
+      <div className="relative  z-20">
         <MissionGoalsSection />
       </div>
 

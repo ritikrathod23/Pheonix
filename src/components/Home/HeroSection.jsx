@@ -26,19 +26,20 @@ export default function HeroSection() {
   const contentItems = [
     {
       id: 1,
-      badge: "Expert Insights for Confident Investing",
-      heading: "Research Calls For Every Investor",
+      badge: "Professional Market Research & Trading Calls",
+      heading:
+        "Research-Driven Trading Calls with a Focus on Accuracy, Discipline & Risk Management",
       description:
-        "India's Top SEBI-Registered (INH000022446) Investment Firm: Pay only for Successful Research Calls.",
-      buttonText: "GET EXPERT ADVICE NOW",
+        "Phoenix Capital Research is a SEBI-registered research firm providing high-accuracy trading calls across multiple market segments, trusted by a growing and diverse client base.",
+      buttonText: "GET EXPERT TRADING CALLS",
     },
     {
       id: 2,
-      badge: "Expert Insights to Power Investment Decisions",
-      heading: "Research Calls For Every Trade",
+      badge: "A Research-First Approach to Trading",
+      heading: "Trading Backed by Structure, Clarity & Discipline",
       description:
-        "With our trusted regulations and experience, you can easily & safely build your investment assets.",
-      buttonText: "START YOUR JOURNEY",
+        "At Phoenix Capital Research, our focus is on delivering structured, data-driven trading calls designed to simplify market participation. Our goal is to remove uncertainty, reduce emotional decision-making, and help traders operate with clarity and confidence.",
+      buttonText: "LEARN HOW WE WORK",
     },
   ];
 
@@ -73,8 +74,7 @@ export default function HeroSection() {
   return (
     <div className="relative pt-20 w-full min-h-screen overflow-hidden">
       <div className="z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
+        <div className=" items-center">
           {/* LEFT SLIDER */}
           <div className="relative w-full h-[420px] overflow-hidden">
             <AnimatePresence mode="wait">
@@ -84,7 +84,7 @@ export default function HeroSection() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="absolute inset-0 p-4 text-white space-y-6"
+                className="absolute inset-0 p-4 text-white space-y-6 flex flex-col items-center justify-center text-center"
               >
                 <span className="inline-block text-xs font-bold uppercase bg-white/50 px-4 py-1.5 rounded-md">
                   {contentItems[currentIndex].badge}
@@ -110,7 +110,7 @@ export default function HeroSection() {
                   {contentItems[currentIndex].description}
                 </p>
 
-                <div className="flex gap-3 pt-4">
+                <div className="flex gap-3 pt-4 justify-center">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -139,75 +139,15 @@ export default function HeroSection() {
                   animate={{
                     width: index === currentIndex ? 28 : 8,
                     backgroundColor:
-                      index === currentIndex ? "#4ade80" : "rgba(255,255,255,0.4)",
+                      index === currentIndex
+                        ? "#4ade80"
+                        : "rgba(255,255,255,0.4)",
                   }}
                   className="h-2 rounded-full"
                 />
               ))}
             </div>
           </div>
-
-          {/* RIGHT FORM */}
-          <motion.div
-            variants={formContainer}
-            initial="hidden"
-            animate="visible"
-            className="flex justify-center"
-          >
-            <motion.div className="bg-white rounded-xl p-6 shadow-xl w-full max-w-md">
-              <motion.h2
-                variants={formItem}
-                className="text-2xl font-bold text-gray-900 mb-5"
-              >
-                FREE CONSULTATION
-              </motion.h2>
-
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                {["fullName", "email", "mobile"].map((field, i) => (
-                  <motion.div key={i} variants={formItem}>
-                    <input
-                      placeholder={
-                        field === "fullName"
-                          ? "Full Name*"
-                          : field === "email"
-                            ? "Email Address*"
-                            : "Mobile Number*"
-                      }
-                      {...register(field, { required: true })}
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400"
-                    />
-                  </motion.div>
-                ))}
-
-                <motion.div variants={formItem}>
-                  <textarea
-                    rows={4}
-                    placeholder="Message"
-                    {...register("message", { required: true })}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400"
-                  />
-                </motion.div>
-
-                <motion.div variants={formItem} className="flex gap-3 pt-2">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex-1 bg-gradient-to-r from-green-400 to-lime-200 text-gray-900 font-bold py-3 rounded-full shadow-lg"
-                  >
-                    SUBMIT NOW
-                  </motion.button>
-
-                  <motion.div
-                    whileHover={{ scale: 1.15, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-12 h-12 bg-gradient-to-r from-green-400 to-lime-200 rounded-full flex items-center justify-center shadow-lg cursor-pointer"
-                  >
-                    <ArrowUpRight className="w-5 h-5 text-gray-900" />
-                  </motion.div>
-                </motion.div>
-              </form>
-            </motion.div>
-          </motion.div>
         </div>
       </div>
     </div>

@@ -11,7 +11,6 @@ export default function MissionGoalsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
           {/* Left Side - Content */}
           <div className="order-2 lg:order-1">
-
             {/* Title */}
             <motion.h2
               ref={scrollRef}
@@ -21,7 +20,7 @@ export default function MissionGoalsSection() {
               // viewport={{ root: scrollRef, once: true }} // animates once (optional)
               className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6"
             >
-              Trusted Research Calls for Confident Trading.
+              About Phoenix Capital Research
             </motion.h2>
 
             {/* Description */}
@@ -31,13 +30,41 @@ export default function MissionGoalsSection() {
               whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
               transition={{ duration: 0.8, ease: "easeOut" }}
               // viewport={{ root: scrollRef, once: true }} // animates once (optional)
-              className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8"
+              className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-2 sm:mb-8"
             >
-              Pheonix Capital Research is a financial company providing professional services for trading stocks and commodities, aiming to maximize client profits through market knowledge, expertise, fundamental monetary concepts, and fair, knowledgeable training.
+              Phoenix Capital Research is a professional financial market
+              research firm offering well-researched trading calls supported by
+              technical analysis, market insights, and disciplined risk
+              management.
+            </motion.p>
+            <motion.p
+              ref={scrollRef}
+              initial={{ opacity: 0, x: -80 }} // Start left + hidden
+              whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              // viewport={{ root: scrollRef, once: true }} // animates once (optional)
+              className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-2 sm:mb-8"
+            >
+              Our team brings years of combined market experience and follows a
+              process-driven research methodology rather than speculation or
+              tips.
+            </motion.p>
+            <motion.p
+              ref={scrollRef}
+              initial={{ opacity: 0, x: -80 }} // Start left + hidden
+              whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              // viewport={{ root: scrollRef, once: true }} // animates once (optional)
+              className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-2 sm:mb-8"
+            >
+              We believe: Accuracy matters
+              more than frequency Capital protection is as important as profit
+              Simplicity leads to consistency Our approach is built on clarity,
+              discipline, and long-term sustainability in trading.
             </motion.p>
 
             {/* Get Started Button */}
-            <motion.button
+            {/* <motion.button
               ref={scrollRef}
               initial={{ opacity: 0, x: -50 }} // Start left + hidden
               whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
@@ -47,7 +74,7 @@ export default function MissionGoalsSection() {
             >
               Get Started
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            </motion.button> */}
           </div>
 
           {/* Right Side - Video/Image */}

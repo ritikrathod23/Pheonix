@@ -1,38 +1,43 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Search, UserCheck, TrendingUp } from 'lucide-react';
+import { FileText, Search, UserCheck, TrendingUp, ShieldCheck, BarChart } from 'lucide-react';
 
 export default function WorkProcessSection() {
-    const processes = [
-        {
-            id: 1,
-            number: "01",
-            icon: FileText,
-            title: "Strategic Planning",
-            description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-        },
-        {
-            id: 2,
-            number: "02",
-            icon: Search,
-            title: "Market Research",
-            description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-        },
-        {
-            id: 3,
-            number: "03",
-            icon: UserCheck,
-            title: "Financial Advisory",
-            description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-        },
-        {
-            id: 4,
-            number: "04",
-            icon: TrendingUp,
-            title: "Change Management",
-            description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-        }
-    ];
+    const processes  = [
+  {
+    id: 1,
+    number: "01",
+    icon: FileText,
+    title: "Technical Analysis",
+    description:
+      "In-depth technical analysis using charts and indicators to identify high-probability trading opportunities.",
+  },
+  {
+    id: 2,
+    number: "02",
+    icon: TrendingUp,
+    title: "Market Structure & Trend Identification",
+    description:
+      "Analysis of market structure and trend direction to align trades with overall market momentum.",
+  },
+  {
+    id: 3,
+    number: "03",
+    icon: BarChart,
+    title: "Price Action & Volume Analysis",
+    description:
+      "Price action and volume-based analysis to confirm strength, weakness, and potential reversals.",
+  },
+  {
+    id: 4,
+    number: "04",
+    icon: ShieldCheck,
+    title: "Risk-Reward Optimization",
+    description:
+      "Every trade is planned with optimized risk-to-reward ratios to prioritize capital protection and consistency.",
+  },
+];
+
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -93,9 +98,7 @@ export default function WorkProcessSection() {
                         </div>
                     </div>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                        Where your financial dreams
-                        <br />
-                        become reality
+                        Our Research Approach
                     </h2>
                 </motion.div>
 

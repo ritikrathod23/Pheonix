@@ -16,6 +16,7 @@ import PrivacyPolicy from "./components/Footer/PrivacyPolicy";
 import TermsConditions from "./components/Footer/TermsConditions";
 import Disclosure from "./components/Footer/Disclosure";
 import UserAgreement from "./components/Footer/UserAgreement";
+import LandingPage from "./pages/LandingPage/LandingPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -42,6 +43,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="services" element={<Services />} />
+          <Route path="landing" element={<LandingPage />} />
           <Route path="contact" element={<Contact />} />
           <Route path="about-us" element={<AboutUs />} />
           <Route path="price" element={<Price />} />

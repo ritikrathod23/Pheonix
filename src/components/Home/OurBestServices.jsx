@@ -8,54 +8,97 @@ import {
   Monitor,
   BanknoteArrowUp,
   Globe,
-  Coins
+  Coins,
+  Puzzle,
+  Repeat,
+  LineChart,
+  Layers,
+  AlertTriangle,
+  ShieldCheck,
+  Target,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function OurServicesSection() {
   const services = [
-    {
-      id: 1,
-      icon: BanknoteArrowUp,
-      title: "Cash Intraday",
-      description:
-        "Intraday Cash Segment Stocks for Small Traders (1-2 Trade Calls Per Day)",
-    },
-    {
-      id: 2,
-      icon: Monitor,
-      title: "Index Options",
-      description:
-        "Options Trading Calls for F&O Traders (1-5 Trade Calls Per Day)",
-    },
-    {
-      id: 3,
-      icon: Clock,
-      title: "Stock Options",
-      description:
-        "Options Trading Calls for F&O Traders (1-5 Trade Calls Per Day)",
-    },
-    {
-      id: 4,
-      icon: TrendingUp,
-      title: "Growth Stocks",
-      description:
-        "Growth Stock For Medium-Term Investors (5-10 Trade Calls Per Month)",
-    },
-    {
-      id: 5,
-      icon: Coins,
-      title: "Penny Stocks",
-      description:
-        "Stocks with less than Rs.100 for a Fundamental Turnaround (1- 5 Trade Calls Per Week)",
-    },
-    {
-      id: 6,
-      icon: HandCoins,
-      title: "Futures Intraday",
-      description:
-        "Intraday Stock Futures Segment Trading Calls for F&O Traders (1-2 Trade Calls Per Day)",
-    },
+  {
+    id: 1,
+    icon: TrendingUp,
+    title: "Entry Levels",
+    description:
+      "Precise entry points shared for every call to help traders enter positions with clarity and confidence.",
+  },
+  {
+    id: 2,
+    icon: Target,
+    title: "Target Prices",
+    description:
+      "Clearly defined target levels provided in advance, ensuring disciplined exits and profit booking.",
+  },
+  {
+    id: 3,
+    icon: ShieldCheck,
+    title: "Stop Loss Levels",
+    description:
+      "Predefined stop loss levels designed to limit downside risk and protect trading capital.",
+  },
+  {
+    id: 4,
+    icon: AlertTriangle,
+    title: "Risk Considerations",
+    description:
+      "Each call includes a structured risk perspective to support controlled and responsible trading decisions.",
+  },
+  {
+    id: 5,
+    icon: Layers,
+    title: "Market Segments Covered",
+    description:
+      "Calls are provided across multiple market segments to match different trading styles and preferences.",
+  },
+   {
+    id: 6,
+    icon: BanknoteArrowUp,
+    title: "Equity Cash",
+    description:
+      "Equity cash market calls with defined levels, suitable for both short-term and positional traders.",
+  },
+  {
+    id: 7,
+    icon: LineChart,
+    title: "Index Trading",
+    description:
+      "Index-based trading calls focused on major indices with clear execution and risk control.",
+  },
+  {
+    id: 8,
+    icon: Clock,
+    title: "Intraday Trading",
+    description:
+      "Time-bound intraday trading calls designed for quick execution within the same trading session.",
+  },
+  {
+    id: 9,
+    icon: Repeat,
+    title: "Positional & Swing Trading",
+    description:
+      "Positional and swing trading calls structured for holding periods ranging from days to weeks.",
+  },
+  {
+    id: 10,
+    icon: Coins,
+    title: "Commodity & Derivatives",
+    description:
+      "Commodity and derivative trading calls backed by disciplined analysis and risk-managed strategies.",
+  },
+  {
+    id: 11,
+    icon: Puzzle,
+    title: "Options Strategy-Based Calls",
+    description:
+      "Options strategy-based calls with defined structures, controlled risk, and planned reward potential.",
+  },
+
   ];
 
   const text = "Our Services";
