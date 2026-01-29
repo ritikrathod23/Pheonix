@@ -5,7 +5,7 @@ export default function AutoScrollingMarquee() {
 
 
   return (
-    <div className="w-full py-4 pb-16 overflow-hidden group">
+    <div className="w-full py-10    overflow-hidden group">
       <div className="relative flex">
         {/* First copy of text */}
         <div className="flex animate-scroll whitespace-nowrap">

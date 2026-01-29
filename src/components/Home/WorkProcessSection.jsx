@@ -3,40 +3,40 @@ import { motion } from 'framer-motion';
 import { FileText, Search, UserCheck, TrendingUp, ShieldCheck, BarChart } from 'lucide-react';
 
 export default function WorkProcessSection() {
-    const processes  = [
-  {
-    id: 1,
-    number: "01",
-    icon: FileText,
-    title: "Technical Analysis",
-    description:
-      "In-depth technical analysis using charts and indicators to identify high-probability trading opportunities.",
-  },
-  {
-    id: 2,
-    number: "02",
-    icon: TrendingUp,
-    title: "Market Structure & Trend Identification",
-    description:
-      "Analysis of market structure and trend direction to align trades with overall market momentum.",
-  },
-  {
-    id: 3,
-    number: "03",
-    icon: BarChart,
-    title: "Price Action & Volume Analysis",
-    description:
-      "Price action and volume-based analysis to confirm strength, weakness, and potential reversals.",
-  },
-  {
-    id: 4,
-    number: "04",
-    icon: ShieldCheck,
-    title: "Risk-Reward Optimization",
-    description:
-      "Every trade is planned with optimized risk-to-reward ratios to prioritize capital protection and consistency.",
-  },
-];
+    const processes = [
+        {
+            id: 1,
+            number: "01",
+            icon: FileText,
+            title: "Technical Analysis",
+            description:
+                "In-depth technical analysis using charts and indicators to identify high-probability trading opportunities.",
+        },
+        {
+            id: 2,
+            number: "02",
+            icon: TrendingUp,
+            title: "Market Structure & Trend Identification",
+            description:
+                "Analysis of market structure and trend direction to align trades with overall market momentum.",
+        },
+        {
+            id: 3,
+            number: "03",
+            icon: BarChart,
+            title: "Price Action & Volume Analysis",
+            description:
+                "Price action and volume-based analysis to confirm strength, weakness, and potential reversals.",
+        },
+        {
+            id: 4,
+            number: "04",
+            icon: ShieldCheck,
+            title: "Risk-Reward Optimization",
+            description:
+                "Every trade is planned with optimized risk-to-reward ratios to prioritize capital protection and consistency.",
+        },
+    ];
 
 
     const containerVariants = {
@@ -74,7 +74,7 @@ export default function WorkProcessSection() {
     };
 
     return (
-        <div className="w-full bg-gray-50 py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+        <div className="w-full bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <motion.div

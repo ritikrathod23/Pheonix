@@ -1,9 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import MissionGoalsSection from "../../components/Home/MissionGoalsSection";
 import HeroImage from "../../assets/HeroImage.png";
 import ShowcasingBestWork from "../../components/Home/ShowcasingBestWork";
 import ClientFeedback from "../../components/Home/ClientFeedback";
 import LatestInsight from "../../components/Home/LatestInsight";
+import aboutus from "../../assets/aboutus.jpeg";
 import {
   ArrowUp,
   ArrowRight,
@@ -14,6 +15,7 @@ import {
   TrendingUp,
   BanknoteArrowUp,
   Star,
+  CheckCircle2,
 } from "lucide-react";
 import AutoScrollingMarquee from "../../components/Home/AutoScrollingMarquee";
 import OurServicesSection from "../../components/Home/OurBestServices";
@@ -30,8 +32,12 @@ import { IconCoin } from "@tabler/icons-react";
 import { BsCoin } from "react-icons/bs";
 import { BsDatabaseFillGear } from "react-icons/bs";
 import { carouselItems } from "../../data/carouselData";
-import { useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
+import {
+  contentItems,
+  services,
+  whyChooseUsData,
+} from "../../data/landingPageData";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { motion, AnimatePresence } from "framer-motion";
@@ -56,7 +62,10 @@ const LandingPage = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm({ mode: "all" });
+
+  const investmentAmount = watch("investmentAmount");
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -69,24 +78,7 @@ const LandingPage = () => {
     reset();
   };
 
-  const contentItems = [
-    {
-      id: 1,
-      badge: "Expert Insights for Confident Investing",
-      heading: "Research Calls For Every Investor",
-      description:
-        "India's Top SEBI-Registered (INH000022446) Investment Firm: Pay only for Successful Research Calls.",
-      buttonText: "GET EXPERT ADVICE NOW",
-    },
-    {
-      id: 2,
-      badge: "Expert Insights to Power Investment Decisions",
-      heading: "Research Calls For Every Trade",
-      description:
-        "With our trusted regulations and experience, you can easily & safely build your investment assets.",
-      buttonText: "START YOUR JOURNEY",
-    },
-  ];
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -121,50 +113,7 @@ const LandingPage = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const services = [
-    {
-      id: 1,
-      icon: BanknoteArrowUp,
-      title: "Intraday Trading Calls",
-      description:
-        "High-accuracy intraday calls with clear entry, defined targets, stop loss, and a disciplined risk-to-reward structure.",
-    },
-    {
-      id: 2,
-      icon: TrendingUp,
-      title: "Positional & Swing Calls",
-      description:
-        "Well-researched positional and swing trading calls designed for stress-free holding with predefined risk management.",
-    },
-    {
-      id: 3,
-      icon: Monitor,
-      title: "Equity Cash & Index Calls",
-      description:
-        "Equity cash and index-based trading calls shared with precise entry levels, targets, and strict stop loss.",
-    },
-    {
-      id: 4,
-      icon: Coins,
-      title: "Commodity & Derivative Calls",
-      description:
-        "Commodity and derivative trading calls backed by data-driven analysis and a strong risk-to-reward framework.",
-    },
-    {
-      id: 5,
-      icon: Clock,
-      title: "Options & Strategy-Based Calls",
-      description:
-        "Options and strategy-based calls structured with clear execution levels, controlled risk, and defined reward potential.",
-    },
-    {
-      id: 6,
-      icon: HandCoins,
-      title: "Futures Trading Calls",
-      description:
-        "Futures trading calls with disciplined entries, predefined targets, strict stop loss, and a focus on capital protection.",
-    },
-  ];
+
 
   const text = "Our Services";
 
@@ -184,11 +133,11 @@ const LandingPage = () => {
         />
       </div>
       {/* ------------- Hero section ------------- */}
-      <div className="relative pt-20 w-full min-h-screen overflow-hidden">
-        <div className="z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="relative pt-20 w-full min-h-screen">
+        <div className="z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             {/* LEFT SLIDER */}
-            <div className="relative w-full h-[420px] overflow-hidden">
+            <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={contentItems[currentIndex].id}
@@ -198,52 +147,94 @@ const LandingPage = () => {
                   exit="exit"
                   className="absolute inset-0 p-4 text-white space-y-6"
                 >
-                  <span className="inline-block text-xs font-bold uppercase bg-white/50 px-4 py-1.5 rounded-md">
+                  <span className="inline-block text-xs font-bold uppercase tracking-wider backdrop-blur-md bg-white/20 border border-white/30 px-4 py-1.5 rounded-full shadow-lg">
                     {contentItems[currentIndex].badge}
                   </span>
 
                   <h1
-                    className="text-3xl md:text-5xl font-bold"
+                    className="text-3xl md:text-6xl font-extrabold leading-tight tracking-tight mt-2"
                     style={{
                       textShadow:
-                        "2px 2px 20px rgba(0,0,0,0.7), 0 0 30px rgba(0,0,0,0.7)",
+                        "5px 5px 30px rgba(0,0,0,0.5), 0 0 40px rgba(0,0,0,0.4)",
                     }}
                   >
                     {contentItems[currentIndex].heading}
                   </h1>
 
-                  <p
-                    className="text-gray-100 max-w-xl"
-                    style={{
-                      textShadow:
-                        "2px 2px 20px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.9)",
-                    }}
-                  >
-                    {contentItems[currentIndex].description}
-                  </p>
-
-                  <div className="flex gap-3 pt-4">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="bg-gradient-to-r from-green-400 to-lime-200 text-gray-900 font-bold px-6 py-3 rounded-full shadow-lg"
+                  {Array.isArray(contentItems[currentIndex].description) ? (
+                    <ul
+                      className="text-gray-100 max-w-xl space-y-4"
+                      style={{
+                        textShadow:
+                          "5px 5px 5px  rgba(0,0,0,0.5)",
+                      }}
                     >
-                      {contentItems[currentIndex].buttonText}
-                    </motion.button>
+                      {contentItems[currentIndex].description.map((point, idx) => (
+                        <motion.li
+                          key={idx}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.2 + idx * 0.1, duration: 0.5 }}
+                          className="flex items-center gap-4 text-lg font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]"
+                        >
+                          <div className="p-1.5 bg-black/40 backdrop-blur-md rounded-full border border-white/20 shadow-lg">
+                            <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0" />
+                          </div>
+                          <span
+                            className="text-white"
+                            style={{
+                              textShadow: "2px 2px 8px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,0.5)"
+                            }}
+                          >
+                            {point}
+                          </span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p
+                      className="text-gray-100 max-w-xl text-lg md:text-xl font-medium leading-relaxed"
+                      style={{
+                        textShadow:
+                          "1px 1px 15px rgba(0,0,0,0.5)",
+                      }}
+                    >
+                      {contentItems[currentIndex].description}
+                    </p>
+                  )}
+
+                  <div className="flex gap-4 pt-4 relative z-20">
+                    {contentItems[currentIndex].buttonText && (
+                      <motion.button
+                        key={`btn-${currentIndex}`}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.4 }}
+                        whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(74, 222, 128, 0.4)" }}
+                        whileTap={{ scale: 0.95 }}
+                        className="bg-gradient-to-r from-green-400 to-lime-300 text-gray-900 font-extrabold px-8 py-3.5 rounded-full shadow-2xl flex items-center gap-2 cursor-pointer"
+                      >
+                        {contentItems[currentIndex].buttonText}
+                      </motion.button>
+                    )}
 
                     <motion.div
-                      whileHover={{ scale: 1.15, rotate: 5 }}
+                      key={`icon-${currentIndex}`}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.6, duration: 0.4 }}
+                      whileHover={{ scale: 1.1, rotate: 5 }}
                       whileTap={{ scale: 0.9 }}
-                      className="w-12 h-12 bg-gradient-to-r from-green-400 to-lime-200 rounded-full flex items-center justify-center shadow-lg cursor-pointer"
+                      className="w-12 h-12 backdrop-blur-md bg-white/10 border border-white/20 rounded-full flex items-center justify-center shadow-xl cursor-pointer group"
                     >
-                      <ArrowUpRight className="w-5 h-5 text-gray-900" />
+                      <ArrowUpRight className="w-6 h-6 text-white group-hover:text-green-400 transition-colors" />
                     </motion.div>
                   </div>
                 </motion.div>
               </AnimatePresence>
 
               {/* Dots */}
-              <div className="absolute bottom-4 left-4 flex gap-2">
+              {/* <div className="absolute bottom-4 right-4 flex gap-2 z-30">
                 {contentItems.map((_, index) => (
                   <motion.button
                     key={index}
@@ -258,7 +249,7 @@ const LandingPage = () => {
                     className="h-2 rounded-full"
                   />
                 ))}
-              </div>
+              </div> */}
             </div>
 
             {/* RIGHT FORM */}
@@ -273,7 +264,7 @@ const LandingPage = () => {
                   variants={formItem}
                   className="text-2xl font-bold text-gray-900 mb-5"
                 >
-                  FREE CONSULTATION
+                  FREE Demo (Tips / Calls )
                 </motion.h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -294,15 +285,85 @@ const LandingPage = () => {
                   ))}
 
                   <motion.div variants={formItem}>
-                    <textarea
-                      rows={4}
-                      placeholder="Message"
-                      {...register("message", { required: true })}
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400"
+                    <select
+                      {...register("demoType", { required: true })}
+                      className="w-full px-4 py-3 text-neutral-500 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400"
+                    >
+                      <option value="">Select Trading Segment</option>
+                      <option value="index">Index F&O</option>
+                      <option value="stock">Stock F&O</option>
+                      <option value="commodity">Commodity (MCX)</option>
+                      <option value="currency">Currency (Forex INR Pairs)</option>
+                      <option value="options">Options Strategies</option>
+                    </select>
+                  </motion.div>
+
+                  <motion.div variants={formItem} className="space-y-3">
+                    <p className="text-sm font-bold text-neutral-600 ml-1">
+                      Investment Amount
+                    </p>
+
+                    <div className="grid grid-cols-4 gap-3">
+                      {["0–50K", "50K–1L", "1L–2L", "Custom"].map((amt) => (
+                        <label key={amt} className="relative cursor-pointer group">
+                          <input
+                            type="radio"
+                            value={amt}
+                            {...register("investmentAmount", { required: true })}
+                            className="peer sr-only"
+                          />
+
+                          <div
+                            className="
+                              py-2.5 px-3 text-center text-sm font-bold
+                              rounded-xl border transition-all duration-200
+                              bg-gray-50 text-neutral-600 border-gray-200
+
+                              peer-checked:bg-gradient-to-r
+                            peer-checked:from-green-400
+                            peer-checked:to-lime-300
+                              peer-checked:border-0
+                            peer-not-checked:hover:bg-gray-100
+                            "
+                          >
+                            {amt}
+                          </div>
+                        </label>
+                      ))}
+                    </div>
+                  </motion.div>
+
+
+                  <AnimatePresence mode="wait">
+                    {investmentAmount === "Custom" && (
+                      <motion.div
+                        key="customAmountField"
+                        initial={{ opacity: 0, height: 0, y: -10 }}
+                        animate={{ opacity: 1, height: "auto", y: 0 }}
+                        exit={{ opacity: 0, height: 0, y: -10 }}
+                        transition={{ duration: 0.4, ease: "circOut" }}
+                        className="overflow-hidden px-1"
+                      >
+                        <input
+                          placeholder="Enter Custom Amount*"
+                          {...register("customAmount", {
+                            required: investmentAmount === "Custom"
+                          })}
+                          className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg  text-neutral-600 focus:ring-2 focus:ring-green-400 "
+                        />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                  <motion.div variants={formItem}>
+                    <input
+                      placeholder="Location (City, State)*"
+                      {...register("location", { required: true })}
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-neutral-600 focus:ring-2 focus:ring-green-400"
                     />
                   </motion.div>
 
-                  <motion.div variants={formItem} className="flex gap-3 pt-2">
+
+                  <motion.div variants={formItem} className="flex gap-3 ">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -326,66 +387,113 @@ const LandingPage = () => {
         </div>
       </div>
 
+
+      {/* ------------ client feedback section ---------- */}
+
+      <div className="relative -mt-30 z-20">
+        <section className="bg-gray-50 rounded-t-[60px] sm:rounded-t-[60px] py-16 px-6">
+          {/* Section Header */}
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 bg-black rounded-full" />
+              <span className="w-12 h-0.5 bg-black" />
+            </div>
+
+            <span className="text-sm font-medium tracking-wide text-black">
+              Testimonials
+            </span>
+
+            <div className="flex items-center gap-2">
+              <span className="w-12 h-0.5 bg-black" />
+              <span className="w-3 h-3 bg-black rounded-full" />
+            </div>
+          </div>
+
+          {/* Title */}
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900">
+              Client Feedback & Reviews
+            </h2>
+            <p className="text-gray-600 mt-2">What Our Investors Say</p>
+          </div>
+
+          {/* Carousel */}
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center gap-6"
+          >
+            {/* <CardCarousel> */}
+            {carouselItems?.map(({ key, ...item }, index) => (
+              <Card key={key || index} {...item} />
+            ))}
+            {/* </CardCarousel> */}
+          </motion.div>
+        </section>
+      </div>
+
+
       {/* -------- About Us Section -------------- */}
-      <div className="relative -top-10 z-20">
-        <div className="w-full bg-gray-100 rounded-t-[40px] sm:rounded-t-[60px] relative py-16 sm:py-20 md:py-24 lg:py-28 px-6 sm:px-12 md:px-48 lg:px-48 xl:px-48">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
-              {/* Left Side - Content */}
-              <div className="order-2 lg:order-1">
-                {/* Title */}
-                <motion.h2
-                  ref={scrollRef}
-                  initial={{ opacity: 0, x: -80 }} // Start left + hidden
-                  whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  // viewport={{ root: scrollRef, once: true }} // animates once (optional)
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6"
-                >
-                  Who We Are
-                </motion.h2>
+      <div className="w-full bg-gray-100 py-16 sm:py-14 md:py-14 lg:py-14 px-6 sm:px-12 md:px-48 lg:px-48 xl:px-48">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
+            {/* Left Side - Content */}
+            <div className="order-2 lg:order-1">
+              {/* Title */}
+              <motion.h2
+                ref={scrollRef}
+                initial={{ opacity: 0, x: -80 }} // Start left + hidden
+                whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                // viewport={{ root: scrollRef, once: true }} // animates once (optional)
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6"
+              >
+                Who We Are
+              </motion.h2>
 
-                {/* Description */}
-                <motion.p
-                  ref={scrollRef}
-                  initial={{ opacity: 0, x: -80 }} // Start left + hidden
-                  whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  // viewport={{ root: scrollRef, once: true }} // animates once (optional)
-                  className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8"
-                >
-                  Phoenix Capital Research is a professional market research
-                  firm providing high-accuracy trading calls backed by technical
-                  analysis, market experience, and disciplined risk management.
-                </motion.p>
+              {/* Description */}
+              <motion.p
+                ref={scrollRef}
+                initial={{ opacity: 0, x: -80 }} // Start left + hidden
+                whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                // viewport={{ root: scrollRef, once: true }} // animates once (optional)
+                className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8"
+              >
+                Phoenix Capital Research is a professional market research
+                firm providing high-accuracy trading calls backed by technical
+                analysis, market experience, and disciplined risk management.
+              </motion.p>
 
-                <motion.p
-                  ref={scrollRef}
-                  initial={{ opacity: 0, x: -80 }} // Start left + hidden
-                  whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  // viewport={{ root: scrollRef, once: true }} // animates once (optional)
-                  className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8"
-                >
-                  Our mission is simple: remove confusion from trading and make
-                  it accessible to everyone — from beginners to experienced
-                  traders.
-                </motion.p>
+              <motion.p
+                ref={scrollRef}
+                initial={{ opacity: 0, x: -80 }} // Start left + hidden
+                whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                // viewport={{ root: scrollRef, once: true }} // animates once (optional)
+                className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8"
+              >
+                Our mission is simple: remove confusion from trading and make
+                it accessible to everyone — from beginners to experienced
+                traders.
+              </motion.p>
 
-                <motion.p
-                  ref={scrollRef}
-                  initial={{ opacity: 0, x: -80 }} // Start left + hidden
-                  whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  // viewport={{ root: scrollRef, once: true }} // animates once (optional)
-                  className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8"
-                >
-                  We don’t believe in hype, tips, or complicated jargon. We
-                  believe in clarity, consistency, and confidence.
-                </motion.p>
+              <motion.p
+                ref={scrollRef}
+                initial={{ opacity: 0, x: -80 }} // Start left + hidden
+                whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                // viewport={{ root: scrollRef, once: true }} // animates once (optional)
+                className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8"
+              >
+                We don’t believe in hype, tips, or complicated jargon. We
+                believe in clarity, consistency, and confidence.
+              </motion.p>
 
-                {/* Get Started Button */}
-                {/* <motion.button
+              {/* Get Started Button */}
+              {/* <motion.button
                   ref={scrollRef}
                   initial={{ opacity: 0, x: -50 }} // Start left + hidden
                   whileInView={{ opacity: 1, x: 0 }} // Slide to place when visible
@@ -396,21 +504,19 @@ const LandingPage = () => {
                   Get Started
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </motion.button> */}
-              </div>
+            </div>
 
-              {/* Right Side - Video/Image */}
-              <div className="order-1 lg:order-2 relative">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80"
-                    alt="Team collaboration"
-                    className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
-                  />
+            {/* Right Side - Video/Image */}
+            <div className="order-1 lg:order-2 relative">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src={aboutus}
+                  className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+                />
 
-                  {/* Optional: Corner accent */}
-                  <div className="absolute top-4 right-4 sm:top-6 sm:right-6 w-12 h-12 sm:w-16 sm:h-16 bg-green-400/20 rounded-full blur-xl"></div>
-                  <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 w-12 h-12 sm:w-16 sm:h-16 bg-lime-400/20 rounded-full blur-xl"></div>
-                </div>
+                {/* Optional: Corner accent */}
+                <div className="absolute top-4 right-4 sm:top-6 sm:right-6 w-12 h-12 sm:w-16 sm:h-16 bg-green-400/20 rounded-full blur-xl"></div>
+                <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 w-12 h-12 sm:w-16 sm:h-16 bg-lime-400/20 rounded-full blur-xl"></div>
               </div>
             </div>
           </div>
@@ -420,7 +526,7 @@ const LandingPage = () => {
       <AutoScrollingMarquee />
 
       {/* -------- Our Services Section -------------- */}
-      <div className="w-full bg-gray-100 py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
+      <div className="w-full bg-gray-100 py-12 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-center items-center gap-3 mb-2">
             <div className="flex items-center gap-2">
@@ -503,7 +609,7 @@ const LandingPage = () => {
       <WorkProcessSection />
 
       {/* -------- Why Choose Us Section -------------- */}
-      <section className="w-full py-20 bg-gray-100">
+      <section className="w-full py-12 bg-gray-100">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 px-6">
           {/* LEFT SECTION */}
           <div>
@@ -565,23 +671,7 @@ const LandingPage = () => {
 
           {/* RIGHT SECTION */}
           <div className="space-y-10">
-            {[
-              {
-                icon: <BsDatabaseFillGear />,
-                title: "Strong & Diverse Client Base",
-                desc: "We serve multiple client types — beginners, professionals, and seasoned traders — across India.",
-              },
-              {
-                icon: <BsCoin />,
-                title: "No Confusion, No Pressure",
-                desc: "We keep trading simple. <br /> No complicated strategies. No emotional trading.",
-              },
-              {
-                icon: <BiSupport />,
-                title: " Trading Made Accessible",
-                desc: "You don’t need years of experience.Our system is built to be easy, practical, and accessible for all.",
-              },
-            ].map((item, i) => (
+            {whyChooseUsData.map((item, i) => (
               <motion.div
                 key={i}
                 custom={i}
@@ -597,15 +687,23 @@ const LandingPage = () => {
                 className="bg-white p-8 rounded-md shadow-sm border border-gray-200 
                                hover:shadow-lg transition-all duration-300 cursor-pointer flex gap-6"
               >
-                <div className="text-green-500 text-5xl">{item.icon}</div>
+                <div className="text-green-500 text-5xl">
+                  <item.icon />
+                </div>
 
                 <div>
                   <h3 className="text-xl font-semibold text-[#081A3B]">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 mt-2 leading-relaxed">
-                    {item.desc}
-                  </p>
+                  {Array.isArray(item.desc) ? (
+                    <ul className="text-gray-600 mt-2 leading-relaxed list-disc pl-5 space-y-1">
+                      {item.desc.map((d, i) => (
+                        <li key={i} dangerouslySetInnerHTML={{ __html: d }} />
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-gray-600 mt-2 leading-relaxed">{item.desc}</p>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -620,49 +718,6 @@ const LandingPage = () => {
       <ContainerVariants />
 
       <ReelsSection />
-
-      {/* --------------- client feedback section ------------ */}
-      <section className="bg-gray-50 py-16 px-6">
-        {/* Section Header */}
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="flex items-center gap-2">
-            <span className="w-3 h-3 bg-black rounded-full" />
-            <span className="w-12 h-0.5 bg-black" />
-          </div>
-
-          <span className="text-sm font-medium tracking-wide text-black">
-            Testimonials
-          </span>
-
-          <div className="flex items-center gap-2">
-            <span className="w-12 h-0.5 bg-black" />
-            <span className="w-3 h-3 bg-black rounded-full" />
-          </div>
-        </div>
-
-        {/* Title */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900">
-            Client Feedback & Reviews
-          </h2>
-          <p className="text-gray-600 mt-2">What Our Investors Say</p>
-        </div>
-
-        {/* Carousel */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-6"
-        >
-          {/* <CardCarousel> */}
-          {carouselItems?.map(({ key, ...item }, index) => (
-            <Card key={key || index} {...item} />
-          ))}
-          {/* </CardCarousel> */}
-        </motion.div>
-      </section>
 
       <FAQSection />
 

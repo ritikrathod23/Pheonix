@@ -35,7 +35,7 @@ export default function FAQSection() {
 
     return (
         <section className="bg-gray-150">
-            <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-16 items-start">
+            <div className="max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-2 gap-16 items-start">
                 {/* LEFT CONTENT */}
                 <motion.div
                     initial={{ opacity: 0, x: -40 }}
