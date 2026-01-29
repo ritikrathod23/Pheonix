@@ -327,7 +327,7 @@ const LandingPage = () => {
       </div>
 
       {/* -------- About Us Section -------------- */}
-      <div className="relative -top-15 z-20">
+      <div className="relative -top-10 z-20">
         <div className="w-full bg-gray-100 rounded-t-[40px] sm:rounded-t-[60px] relative py-16 sm:py-20 md:py-24 lg:py-28 px-6 sm:px-12 md:px-48 lg:px-48 xl:px-48">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
