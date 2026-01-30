@@ -34,17 +34,17 @@ export default function Navbar() {
                 to="/"
                 className="text-white text-2xl font-bold flex items-center"
               >
-                <img src={logo} alt="Logo" className="h-14" />
+                <img src={logo} alt="Logo" className="h-10 md:h-12 lg:h-14" />
               </Link>
             </div>
 
             {/* Desktop Navigation Links - Centered */}
-            <div className="hidden md:flex text-xl items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
+            <div className="hidden md:flex items-center md:space-x-1 lg:space-x-6 absolute left-1/2 transform -translate-x-1/2">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-lg font-medium flex items-center group"
+                  className="text-white hover:text-gray-300 md:px-2 lg:px-3 py-2 rounded-md md:text-sm lg:text-lg font-medium flex items-center group text-nowrap"
                 >
                   <span className={`${location.pathname === link.path ? 'text-green-400' : 'text-transparent'} mr-1`}>•</span>
                   {link.name}

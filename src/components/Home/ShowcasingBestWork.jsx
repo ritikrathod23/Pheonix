@@ -24,9 +24,6 @@ function ShowcasingBestWork() {
           </h3>
           <h3 className="text-3xl sm:text-5xl font-semibold mb-4">Work</h3>
         </div>
-        <button className="bg-gradient-to-l from-lime-200 to-green-400/70  px-12  sm:py-4 py-2  rounded-xl">
-          <span>View All</span>
-        </button>
       </div>
 
       <div>

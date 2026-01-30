@@ -734,38 +734,25 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-const Card = ({ title, description, review, name, avatar }) => {
+const Card = ({ description, review, name, avatar }) => {
   const rating = Number(review) || 0;
 
   return (
-    <div className="w-[380px] h-[380px] bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all p-8 flex flex-col justify-between">
-      {/* Content */}
+    <div className="w-[380px] bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all p-8 flex flex-col">
       <div>
-        <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
-
-        <p className="text-gray-700 leading-relaxed mb-6">{description}</p>
-
-        {/* Stars */}
-        <div className="flex gap-1">
+        <div className="flex gap-1 mb-4">
           {[...Array(5)].map((_, i) => (
             <Star
               key={i}
               size={20}
-              className={
-                i < rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
-              }
+              className={i < rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"}
             />
           ))}
         </div>
+        <p className="text-gray-600 leading-relaxed mb-6">{description}</p>
       </div>
-
-      {/* User */}
-      <div className="flex items-center gap-4 pt-6 border-t border-gray-200">
-        <img
-          src={avatar}
-          alt={name}
-          className="w-12 h-12 rounded-full object-cover"
-        />
+      <div className="flex items-center gap-4 pt-6 border-t border-gray-200 mt-auto">
+        <img src={avatar} alt={name} className="w-12 h-12 rounded-full object-cover" />
         <div>
           <p className="font-semibold text-gray-900">{name}</p>
           <p className="text-sm text-gray-500">Investor</p>
