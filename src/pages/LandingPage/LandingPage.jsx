@@ -133,7 +133,7 @@ const LandingPage = () => {
         />
       </div>
       {/* ------------- Hero section ------------- */}
-      <div className="relative pt-10 md:pt-15 lg:pt-20 w-full min-h-screen">
+      <div className="relative pt-20 w-full min-h-screen">
         <div className="z-10 max-w-7xl mx-auto  sm:px-6 lg:px-8 py-10 md:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             {/* LEFT SLIDER */}
