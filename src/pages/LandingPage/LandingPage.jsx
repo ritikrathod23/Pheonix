@@ -125,19 +125,19 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen">
       {/* Background Image - Empty for now */}
-      <div className="absolute brightness-90 inset-0 z-0 bg-gray-900 h-full">
+      <div className="absolute brightness-90 inset-0 z-0 bg-green-950 h-full">
         <img
           src={HeroImage}
           alt=""
-          className="w-full scale-x-[-1] h-full md:h-max object-cover object-right"
+          className="w-full scale-x-[-1] h-full lg:h-max object-cover object-right"
         />
       </div>
       {/* ------------- Hero section ------------- */}
-      <div className="relative pt-20 w-full min-h-screen">
+      <div className="relative pt-10 md:pt-15 lg:pt-20 w-full min-h-screen">
         <div className="z-10 max-w-7xl mx-auto  sm:px-6 lg:px-8 py-10 md:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             {/* LEFT SLIDER */}
-            <div className="relative w-full mt-10 sm:mt-0 h-[500px] md:h-[700px] overflow-hidden">
+            <div className="relative w-full mt-10 sm:mt-0 h-[500px] md:h-[700px]  overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={contentItems[currentIndex].id}
@@ -145,14 +145,14 @@ const LandingPage = () => {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  className="absolute inset-0 p-4 text-white space-y-6"
+                  className="absolute inset-0 p-4 text-white space-y-2 lg:space-y-6 "
                 >
                   <span className="inline-block text-xs font-bold uppercase tracking-wider backdrop-blur-md bg-white/20 border border-white/30 px-4 py-1.5 rounded-full shadow-lg">
                     {contentItems[currentIndex].badge}
                   </span>
 
                   <h1
-                    className="text-3xl md:text-6xl font-extrabold leading-tight tracking-tight mt-2"
+                    className="text-3xl lg:text-6xl font-extrabold leading-tight tracking-tight mt-2"
                     style={{
                       textShadow:
                         "5px 5px 30px rgba(0,0,0,0.5), 0 0 40px rgba(0,0,0,0.4)",
@@ -175,7 +175,7 @@ const LandingPage = () => {
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.2 + idx * 0.1, duration: 0.5 }}
-                          className="flex items-center gap-4 text-lg font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]"
+                          className="flex items-center gap-4 text-md md:text-lg font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]"
                         >
                           <div className="p-1.5 bg-black/40 backdrop-blur-md rounded-full border border-white/20 shadow-lg">
                             <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0" />
@@ -259,15 +259,15 @@ const LandingPage = () => {
               animate="visible"
               className="flex justify-center"
             >
-              <motion.div className="bg-white rounded-xl p-6 shadow-xl w-full max-w-md">
+              <motion.div className=" bg-white rounded-xl p-6 shadow-xl w-full md:max-w-sm lg:max-w-md">
                 <motion.h2
                   variants={formItem}
-                  className=" text-lg sm:text-2xl font-bold text-gray-900 mb-5"
+                  className=" text-xl sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-5"
                 >
                   FREE Demo (Tips / Calls )
                 </motion.h2>
 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-2 lg:space-y-4">
                   {["fullName", "email", "mobile"].map((field, i) => (
                     <motion.div key={i} variants={formItem}>
                       <input
@@ -279,7 +279,7 @@ const LandingPage = () => {
                               : "Mobile Number*"
                         }
                         {...register(field, { required: true })}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400"
+                        className="w-full text-base sm:text-sm lg:text-base px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400"
                       />
                     </motion.div>
                   ))}
@@ -287,7 +287,7 @@ const LandingPage = () => {
                   <motion.div variants={formItem}>
                     <select
                       {...register("demoType", { required: true })}
-                      className="w-full px-4 py-3 text-neutral-500 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400"
+                      className="w-full text-base sm:text-sm lg:text-base px-4 py-2 text-neutral-500 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400"
                     >
                       <option value="">Select Trading Segment</option>
                       <option value="index">Index F&O</option>
@@ -312,18 +312,17 @@ const LandingPage = () => {
                             {...register("investmentAmount", { required: true })}
                             className="peer sr-only"
                           />
-
                           <div
                             className="
-                              py-2.5 px-3 text-center text-sm font-bold
+                              w-full h-10 text-base sm:text-sm lg:text-base flex items-center justify-center text-center font-bold
                               rounded-xl border transition-all duration-200
                               bg-gray-50 text-neutral-600 border-gray-200
 
                               peer-checked:bg-gradient-to-r
-                            peer-checked:from-green-400
-                            peer-checked:to-lime-300
+                              peer-checked:from-green-400
+                              peer-checked:to-lime-300
                               peer-checked:border-0
-                            peer-not-checked:hover:bg-gray-100
+                              peer-not-checked:hover:bg-gray-100
                             "
                           >
                             {amt}
@@ -349,7 +348,7 @@ const LandingPage = () => {
                           {...register("customAmount", {
                             required: investmentAmount === "Custom"
                           })}
-                          className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg  text-neutral-600 focus:ring-2 focus:ring-green-400 "
+                          className="w-full text-base sm:text-sm lg:text-base px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-neutral-600 focus:ring-2 focus:ring-green-400"
                         />
                       </motion.div>
                     )}
@@ -358,7 +357,7 @@ const LandingPage = () => {
                     <input
                       placeholder="Location (City, State)*"
                       {...register("location", { required: true })}
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-neutral-600 focus:ring-2 focus:ring-green-400"
+                      className="w-full text-base sm:text-sm lg:text-base px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-neutral-600 focus:ring-2 focus:ring-green-400"
                     />
                   </motion.div>
 
@@ -367,7 +366,7 @@ const LandingPage = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="flex-1 bg-gradient-to-r from-green-400 to-lime-200 text-gray-900 font-bold py-3 rounded-full shadow-lg"
+                      className="flex-1 bg-gradient-to-r from-green-400 to-lime-200 text-gray-900 font-bold py-2 text-base sm:text-sm lg:text-base rounded-full shadow-lg"
                     >
                       SUBMIT NOW
                     </motion.button>
@@ -385,12 +384,12 @@ const LandingPage = () => {
             </motion.div>
           </div>
         </div>
-      </div>
+      </div >
 
 
       {/* ------------ client feedback section ---------- */}
 
-      <div className="relative -mt-5 sm:-mt-34 z-20">
+      < div className="relative -mt-5 md:-mt-34 z-20" >
         <section className="bg-gray-50 rounded-t-[60px] sm:rounded-t-[60px] py-16 px-6">
           {/* Section Header */}
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -432,11 +431,11 @@ const LandingPage = () => {
             {/* </CardCarousel> */}
           </motion.div>
         </section>
-      </div>
+      </div >
 
 
       {/* -------- About Us Section -------------- */}
-      <div className="w-full bg-gray-100 py-16 sm:py-14 md:py-14 lg:py-14 px-6 sm:px-12 md:px-48 lg:px-48 xl:px-48">
+      < div className="w-full bg-gray-100 py-16 sm:py-14 md:py-14 lg:py-14 px-6 sm:px-12 md:px-48 lg:px-48 xl:px-48" >
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
             {/* Left Side - Content */}
@@ -521,7 +520,7 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div >
 
       <AutoScrollingMarquee />
 
@@ -730,7 +729,7 @@ const LandingPage = () => {
       >
         <ArrowUp className="w-6 h-6 text-black" />
       </div>
-    </div>
+    </div >
   );
 };
 
