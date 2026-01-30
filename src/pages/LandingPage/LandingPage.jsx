@@ -134,10 +134,10 @@ const LandingPage = () => {
       </div>
       {/* ------------- Hero section ------------- */}
       <div className="relative pt-20 w-full min-h-screen">
-        <div className="z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20">
+        <div className="z-10 max-w-7xl mx-auto  sm:px-6 lg:px-8 py-10 md:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             {/* LEFT SLIDER */}
-            <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden">
+            <div className="relative w-full mt-10 sm:mt-0 h-[500px] md:h-[700px] overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={contentItems[currentIndex].id}
@@ -262,7 +262,7 @@ const LandingPage = () => {
               <motion.div className="bg-white rounded-xl p-6 shadow-xl w-full max-w-md">
                 <motion.h2
                   variants={formItem}
-                  className="text-2xl font-bold text-gray-900 mb-5"
+                  className=" text-lg sm:text-2xl font-bold text-gray-900 mb-5"
                 >
                   FREE Demo (Tips / Calls )
                 </motion.h2>
@@ -390,7 +390,7 @@ const LandingPage = () => {
 
       {/* ------------ client feedback section ---------- */}
 
-      <div className="relative -mt-30 z-20">
+      <div className="relative -mt-5 sm:-mt-34 z-20">
         <section className="bg-gray-50 rounded-t-[60px] sm:rounded-t-[60px] py-16 px-6">
           {/* Section Header */}
           <div className="flex items-center justify-center gap-3 mb-4">
